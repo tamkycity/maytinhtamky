@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính Tam Kỳ</title>
+    <script>
+        // Chuyển hướng ngay lập tức không hiển thị gì cả
+        (function () {
+            const userAgent = navigator.userAgent.toLowerCase();
+            const isMobile = /android|webos|iphone|ipad|ipod|blackberry|windows phone|mobile|tablet/.test(userAgent);
+            const isSmallScreen = window.innerWidth <= 768;
+
+            if (isMobile || isSmallScreen) {
+                window.location.replace('Máy%20Tính%20Tam%20Kỳ%20(Moblie).html');
+            } else {
+                window.location.replace('Máy%20Tính%20Tam%20Kỳ%20(PC).html');
+            }
+        })();
+    </script>
+</head>
+<body style="margin: 0; padding: 0; background: #1E3A8A;">
+    <!-- Nội dung fallback nếu JS bị tắt -->
+    <noscript>
+        <meta http-equiv="refresh" content="0; url=Máy%20Tính%20Tam%20Kỳ.html">
+    </noscript>
+</body>
+</html>

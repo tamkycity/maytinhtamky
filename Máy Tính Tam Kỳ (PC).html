@@ -1,0 +1,3576 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máy Tính Tam Kỳ - Cửa hàng máy tính uy tín</title>
+    <link rel="icon" type="image/png" href="Image/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f2f5;
+            color: #1A1A1A;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            padding: 0 40px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+            .nav-links a {
+                color: #FFFFFF;
+                text-decoration: none;
+                font-weight: 500;
+                transition: opacity 0.3s;
+                font-size: 16px;
+                cursor: pointer;
+                padding-bottom: 5px;
+                border-bottom: 2px solid transparent;
+            }
+
+                .nav-links a:hover, .nav-links a.active {
+                    opacity: 1;
+                    border-bottom-color: #FFFFFF;
+                }
+
+        .nav-contact {
+            display: flex;
+            gap: 15px;
+        }
+
+        .nav-btn {
+            background: #FFFFFF;
+            color: #1E3A8A;
+            padding: 10px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 10px;
+        }
+
+            .nav-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            }
+
+        /* Scene Container */
+        .scene {
+            display: none;
+            animation: fadeIn 0.5s ease-in;
+        }
+
+            .scene.active {
+                display: block;
+            }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hero Section Home */
+        .hero-home {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            background-image: url('https://mediadirhub.com/vibe/modern-computer-retail-storefront-with-digital-display-and-blue-white-color-scheme.png     ');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+            .hero-home::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, rgba(30,58,138,0.95) 0%, rgba(30,58,138,0.7) 50%, transparent 100%);
+            }
+
+        .hero-home-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+            width: 100%;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            color: #FFFFFF;
+        }
+
+        .hero-title {
+            font-size: 56px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 22px;
+            line-height: 1.6;
+            margin-bottom: 40px;
+            opacity: 0.95;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            background: #FFFFFF;
+            color: #1E3A8A;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+            .btn-primary:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #FFFFFF;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+            .btn-secondary:hover {
+                background: #FFFFFF;
+                color: #1E3A8A;
+            }
+
+        /* Hero Section Contact */
+        .hero-contact {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://mediadirhub.com/vibe/modern-computer-retail-storefront-with-digital-display-and-blue-white-color-scheme.png     ');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+            .hero-contact::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.6);
+            }
+
+        .hero-contact-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #fff;
+            max-width: 800px;
+            padding: 0 40px;
+        }
+
+        .hero-contact-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-contact-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Hero Section About */
+        .hero-about {
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-image: url('https://mediadirhub.com/vibe/modern-computer-retail-storefront-with-digital-display-and-blue-white-color-scheme.png     ');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+            .hero-about::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0,0,0,0.6);
+            }
+
+        .hero-about-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: #FFFFFF;
+            max-width: 800px;
+            padding: 0 40px;
+        }
+
+        .hero-about-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .hero-about-subtitle {
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 80px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            color: #1A1A1A;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+            .section-title::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 4px;
+                background: #1E3A8A;
+                border-radius: 2px;
+            }
+
+        .view-all {
+            color: #1E3A8A;
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* ============================================
+        BADGE SALE - TÁCH RIÊNG CHO TỪNG LOẠI CARD
+        ============================================ */
+
+        /* ===== GAMING CARD ===== */
+        .gaming-card .badge-sale {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+            animation: badge-pulse-rotate 1.5s ease-in-out infinite;
+            background-color: transparent;
+        }
+
+            .gaming-card .badge-sale img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 1)) drop-shadow(0 6px 20px rgba(220, 38, 38, 1)) drop-shadow(0 10px 40px rgba(220, 38, 38, 1));
+                background-color: transparent;
+            }
+
+        .gaming-card .badge-sale-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            pointer-events: none;
+            white-space: nowrap;
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== COMPONENT CARD ===== */
+        .component-card .badge-sale {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+            animation: badge-pulse-rotate 1.5s ease-in-out infinite;
+            background-color: transparent;
+        }
+
+            .component-card .badge-sale img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 1)) drop-shadow(0 6px 20px rgba(220, 38, 38, 1)) drop-shadow(0 10px 40px rgba(220, 38, 38, 1));
+                background-color: transparent;
+            }
+
+        .component-card .badge-sale-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            pointer-events: none;
+            white-space: nowrap;
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== LAPTOP CARD ===== */
+        .laptop-card .badge-sale {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+            animation: badge-pulse-rotate 1.5s ease-in-out infinite;
+            background: transparent;
+        }
+
+            .laptop-card .badge-sale img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 1)) drop-shadow(0 6px 20px rgba(220, 38, 38, 1)) drop-shadow(0 10px 40px rgba(220, 38, 38, 1));
+                background-color: transparent;
+            }
+
+        .laptop-card .badge-sale-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            pointer-events: none;
+            white-space: nowrap;
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== PRINTER CARD ===== */
+        .printer-card .badge-sale {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+            animation: badge-pulse-rotate 1.5s ease-in-out infinite;
+            background: transparent;
+        }
+
+            .printer-card .badge-sale img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 1)) drop-shadow(0 6px 20px rgba(220, 38, 38, 1)) drop-shadow(0 10px 40px rgba(220, 38, 38, 1));
+                background-color: transparent;
+            }
+
+        .printer-card .badge-sale-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            pointer-events: none;
+            white-space: nowrap;
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== WEBCAM CARD ===== */
+        .webcam-card .badge-sale {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 60px;
+            height: 60px;
+            z-index: 100;
+            animation: badge-pulse-rotate 1.5s ease-in-out infinite;
+            background: transparent;
+        }
+
+            .webcam-card .badge-sale img {
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                display: block;
+                filter: drop-shadow(0 2px 8px rgba(220, 38, 38, 1)) drop-shadow(0 6px 20px rgba(220, 38, 38, 1)) drop-shadow(0 10px 40px rgba(220, 38, 38, 1));
+                background-color: transparent;
+            }
+
+        .webcam-card .badge-sale-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #FFFFFF;
+            font-weight: 900;
+            font-size: 12px;
+            text-align: center;
+            line-height: 1;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.8);
+            pointer-events: none;
+            white-space: nowrap;
+            animation: text-pulse 1.5s ease-in-out infinite;
+        }
+
+        /* ===== KEYFRAMES CHUNG ===== */
+        @keyframes badge-pulse-rotate {
+            0%, 100% {
+                transform: scale(1) rotate(-10deg);
+            }
+
+            50% {
+                transform: scale(1.15) rotate(10deg);
+            }
+        }
+
+        @keyframes text-pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .gaming-card .badge-sale,
+            .component-card .badge-sale,
+            .laptop-card .badge-sale,
+            .printer-card .badge-sale,
+            .webcam-card .badge-sale {
+                width: 50px;
+                height: 50px;
+                top: 6px;
+                right: 6px;
+            }
+
+            .gaming-card .badge-sale-text,
+            .component-card .badge-sale-text,
+            .laptop-card .badge-sale-text,
+            .printer-card .badge-sale-text,
+            .webcam-card .badge-sale-text {
+                font-size: 10px;
+            }
+        }
+
+        /* ============================================
+           GAMING GEAR SECTION
+           ============================================ */
+        .gaming-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            margin: 40px 40px 80px;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+            .gaming-section .section-title {
+                color: #FFFFFF;
+            }
+
+                .gaming-section .section-title::after {
+                    background: #FFFFFF;
+                }
+
+            .gaming-section .view-all {
+                color: #FFFFFF;
+            }
+
+        .gaming-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .gaming-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+            .gaming-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .gaming-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                display: block;
+                background-color: white;
+                filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.85));
+            }
+
+        .gaming-card-content {
+            padding: 20px;
+        }
+
+        .gaming-card-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+        }
+
+        .gaming-card-desc {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .gaming-card-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+            .gaming-card-price .old {
+                font-size: 14px;
+                color: rgba(255,255,255,0.6);
+                text-decoration: line-through;
+                margin-left: 8px;
+                font-weight: 500;
+            }
+
+        /* ============================================
+           COMPONENTS SECTION
+           ============================================ */
+        .components-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .component-card {
+            background: rgba(255,255,255,0.1);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 2px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+            .component-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .component-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                background-color: white;
+                filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.85));
+            }
+
+        .component-info {
+            padding: 20px;
+        }
+
+        .component-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .component-specs {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+
+        .component-price {
+            font-size: 20px;
+            font-weight: 800;
+            color: #ffd700;
+            margin-top: 10px;
+        }
+
+            .component-price .old {
+                font-size: 14px;
+                color: rgba(255,255,255,0.6);
+                text-decoration: line-through;
+                margin-left: 8px;
+                font-weight: 500;
+            }
+
+        /* ============================================
+           LAPTOP SECTION
+           ============================================ */
+        .laptop-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+            .laptop-section .section-title {
+                color: #FFFFFF;
+            }
+
+                .laptop-section .section-title::after {
+                    background: #FFFFFF;
+                }
+
+        .laptop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .laptop-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+            .laptop-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .laptop-card img {
+                width: 100%;
+                height: 220px;
+                object-fit: cover;
+                background-color: white;
+                filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.85));
+            }
+
+        .laptop-info {
+            padding: 20px;
+        }
+
+        .laptop-brand {
+            font-size: 11px;
+            color: #93bbfc;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .laptop-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #FFFFFF;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .laptop-price {
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+            .laptop-price .old {
+                font-size: 13px;
+                color: rgba(255,255,255,0.6);
+                text-decoration: line-through;
+                margin-right: 8px;
+                font-weight: 500;
+            }
+
+            .laptop-price span {
+                font-size: 13px;
+                color: rgba(255,255,255,0.8);
+                font-weight: 500;
+            }
+
+        /* ============================================
+           PRINTER SECTION
+           ============================================ */
+        .printer-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+            .printer-section .section-title {
+                color: #FFFFFF;
+            }
+
+                .printer-section .section-title::after {
+                    background: #FFFFFF;
+                }
+
+        .printer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .printer-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+            .printer-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .printer-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+                background-color: white;
+                filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.85));
+            }
+
+        .printer-info {
+            padding: 20px;
+        }
+
+        .printer-type {
+            font-size: 11px;
+            color: #93bbfc;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .printer-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .printer-features {
+            font-size: 13px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+
+        .printer-price {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+            .printer-price .old {
+                font-size: 14px;
+                color: rgba(255,255,255,0.6);
+                text-decoration: line-through;
+                margin-left: 8px;
+                font-weight: 500;
+            }
+
+        /* ============================================
+           WEBCAM SECTION
+           ============================================ */
+        .webcam-section {
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+            .webcam-section .section-title {
+                color: #FFFFFF;
+            }
+
+                .webcam-section .section-title::after {
+                    background: #FFFFFF;
+                }
+
+        .webcam-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+        }
+
+        .webcam-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 0px;
+            overflow: hidden;
+            transition: all 0.3s;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+            .webcam-card:hover {
+                transform: translateY(-10px);
+                background: rgba(255,255,255,0.2);
+                transform: translateY(-8px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            }
+
+            .webcam-card img {
+                width: 100%;
+                height: 120px;
+                object-fit: contain;
+                margin-bottom: 16px;
+                background-color: white;
+                filter: drop-shadow(0 6px 10px rgba(255, 255, 255, 0.85));
+            }
+
+        .webcam-name {
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            padding: 0 16px;
+        }
+
+        .webcam-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ffd700;
+            padding: 0 16px;
+        }
+
+            .webcam-price .old {
+                font-size: 12px;
+                color: rgba(255,255,255,0.6);
+                text-decoration: line-through;
+                margin-left: 6px;
+                font-weight: 500;
+            }
+
+        /* Installment Banner */
+        .installment-banner {
+            margin: 0 40px 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 30px rgba(102,126,234,0.3);
+        }
+
+        .installment-content {
+            flex: 1;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+        .installment-title {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .installment-desc {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
+
+        .installment-image {
+            width: 400px;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+        }
+
+        .service-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+            .service-card:hover {
+                transform: translateY(-10px);
+                transform: translateY(-5px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+            }
+
+            .service-card img {
+                width: 100%;
+                height: 180px;
+                object-fit: cover;
+            }
+
+        .service-info {
+            padding: 24px;
+        }
+
+        .service-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A1A1A;
+            margin-bottom: 10px;
+        }
+
+        .service-desc {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Contact Page Styles */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 40px;
+        }
+
+        .contact-methods {
+            display: grid;
+            gap: 24px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border: 1px solid #e7e7e7;
+            text-decoration: none;
+            color: inherit;
+        }
+
+            .contact-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+                border-color: #1E3A8A;
+            }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: #fafafa;
+            border: 1px solid #e7e7e7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover .icon-box {
+            background: #1E3A8A;
+            border-color: #1E3A8A;
+        }
+
+        .icon-box svg {
+            width: 28px;
+            height: 28px;
+            color: #1A1A1A;
+            transition: color 0.3s;
+        }
+
+        .contact-card:hover .icon-box svg {
+            color: #FFFFFF;
+        }
+
+        .icon-box img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .contact-info {
+            margin-left: 20px;
+            flex: 1;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A1A1A;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 6px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .contact-value {
+            font-size: 16px;
+            color: #909090;
+            font-family: 'Poppins', sans-serif;
+            transition: color 0.3s;
+        }
+
+        .contact-card:hover .contact-value {
+            color: #1E3A8A;
+        }
+
+        .map-section {
+            background: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .map-header {
+            padding: 30px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            color: #FFFFFF;
+        }
+
+        .map-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .map-address {
+            font-size: 15px;
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        .map-container {
+            width: 100%;
+            height: 400px;
+            background: #e5e7eb;
+        }
+
+            .map-container iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+        .business-hours {
+            margin-top: 40px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .hours-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #1A1A1A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .hours-list {
+            display: grid;
+            gap: 12px;
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #f3f4f6;
+        }
+
+            .hours-item:last-child {
+                border-bottom: none;
+            }
+
+        .hours-day {
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .hours-time {
+            color: #1E3A8A;
+            font-weight: 600;
+        }
+
+        .cta-section {
+            margin: 0 40px 80px;
+            text-align: center;
+            padding: 60px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            border-radius: 24px;
+            color: #FFFFFF;
+        }
+
+        .cta-title {
+            font-size: 32px;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-text {
+            font-size: 18px;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: #FFFFFF;
+            color: #1E3A8A;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            border: none;
+            cursor: pointer;
+        }
+
+            .btn-white:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            }
+
+        .btn-outline {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px solid #FFFFFF;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+            .btn-outline:hover {
+                background: #FFFFFF;
+                color: #1E3A8A;
+            }
+
+        /* About Page Styles */
+        .about-year {
+            text-align: center;
+            padding: 80px 40px;
+            background: #fafafa;
+        }
+
+        .year-number {
+            font-size: 120px;
+            font-weight: 300;
+            color: #929292;
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .year-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 20px;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .year-desc {
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .about-mission {
+            padding: 80px 40px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .about-vision {
+            padding: 80px 40px;
+            background: #fafafa;
+            text-align: center;
+        }
+
+        .about-block-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .about-block-desc {
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        .awards-section {
+            padding: 80px 40px;
+            background: #FFFFFF;
+            text-align: center;
+        }
+
+        .awards-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .awards-desc {
+            font-size: 16px;
+            color: #4b5563;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .award-card {
+            padding: 30px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+            .award-card:hover {
+                transform: translateY(-5px);
+            }
+
+        .award-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+            .award-icon svg {
+                width: 40px;
+                height: 40px;
+            }
+
+        .award-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .award-year {
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        .award-gold {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+        }
+
+            .award-gold .award-icon {
+                color: #d97706;
+            }
+
+        .award-blue {
+            background: #eff6ff;
+            border: 1px solid #bfdbfe;
+        }
+
+            .award-blue .award-icon {
+                color: #2563eb;
+            }
+
+        .award-purple {
+            background: #faf5ff;
+            border: 1px solid #e9d5ff;
+        }
+
+            .award-purple .award-icon {
+                color: #9333ea;
+            }
+
+        /* Footer */
+        .footer {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            padding: 60px 40px 30px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+        }
+
+        .footer-brand h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .footer-brand p {
+            color: #999;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .footer-links h4 {
+            font-size: 18px;
+            margin-bottom: 24px;
+            color: #FFFFFF;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+            .footer-links a:hover {
+                color: #FFFFFF;
+            }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* ============================================
+           FLOATING CONTACT BUTTONS
+           ============================================ */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: flex-end;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .floating-btn:hover {
+                transform: scale(1.1);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            }
+
+            .floating-btn img {
+                width: 60%;
+                height: 60%;
+                object-fit: contain;
+            }
+
+        .zalo-btn {
+            background: #0068FF;
+            animation: zalo-pulse 2s infinite;
+        }
+
+            .zalo-btn img {
+                width: 70%;
+                height: 70%;
+                object-fit: contain;
+                filter: brightness(0) invert(1);
+            }
+
+        .messenger-btn {
+            background: linear-gradient(135deg, #0099FF 0%, #A033FF 50%, #FF5C87 100%);
+            animation: messenger-pulse 2s infinite;
+        }
+
+        .phone-btn {
+            background: #10B981;
+            animation: phone-pulse 2s infinite;
+        }
+
+        @keyframes zalo-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(0,104,255,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(0,104,255,0);
+            }
+        }
+
+        @keyframes messenger-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(0,153,255,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(0,153,255,0);
+            }
+        }
+
+        @keyframes phone-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(16,185,129,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 15px rgba(16,185,129,0);
+            }
+        }
+
+        /* Tooltip */
+        .floating-btn::before {
+            content: attr(data-tooltip);
+            position: absolute;
+            right: 70px;
+            background: #1e293b;
+            color: #fff;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        .floating-btn::after {
+            content: '';
+            position: absolute;
+            right: 60px;
+            border: 6px solid transparent;
+            border-left-color: #1e293b;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .floating-btn:hover::before,
+        .floating-btn:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        @media(max-width:768px) {
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+                gap: 12px;
+            }
+
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+            }
+
+                .floating-btn::before,
+                .floating-btn::after {
+                    display: none;
+                }
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .gaming-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .components-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .laptop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .webcam-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .printer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        /* ============================================
+           FORM TƯ VẤN MIỄN PHÍ - THÊM MỚI
+           ============================================ */
+        .consult-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+            color: #FFFFFF;
+        }
+
+        .consult-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .consult-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .consult-form {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+            .form-group.full {
+                grid-column: 1 / -1;
+            }
+
+        .form-label {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            padding: 14px 18px;
+            border-radius: 12px;
+            border: 2px solid rgba(255,255,255,0.3);
+            background: rgba(255,255,255,0.1);
+            color: #FFFFFF;
+            font-size: 16px;
+            transition: all 0.3s;
+        }
+
+            .form-input::placeholder, .form-textarea::placeholder {
+                color: rgba(255,255,255,0.6);
+            }
+
+            .form-input:focus, .form-select:focus, .form-textarea:focus {
+                outline: none;
+                border-color: #FFFFFF;
+                background: rgba(255,255,255,0.2);
+            }
+
+        .form-select {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23fff' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 18px center;
+        }
+
+            .form-select option {
+                background: #1E3A8A;
+                color: #FFFFFF;
+            }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 18px;
+            background: #FFFFFF;
+            color: #667eea;
+            border: none;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+            .btn-submit:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            }
+
+            .btn-submit:disabled {
+                opacity: 0.7;
+                cursor: not-allowed;
+                transform: none;
+            }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(102,126,234,0.3);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .success-message {
+            display: none;
+            background: rgba(34,197,94,0.2);
+            border: 2px solid #22c55e;
+            color: #FFFFFF;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            display: none;
+            background: rgba(239,68,68,0.2);
+            border: 2px solid #ef4444;
+            color: #FFFFFF;
+            padding: 16px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+
+        /* Spacing cho form tư vấn */
+        .consult-section {
+            margin-top: 40px !important;
+        }
+
+        #scene-home .consult-section {
+            margin-top: 60px !important;
+        }
+
+        /* ============================================
+           GALLERY ADMIN - THÊM MỚI
+           ============================================ */
+        .gallery-section {
+            background: #FFFFFF;
+            border-radius: 24px;
+            margin: 0 40px 80px;
+            padding: 60px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            border-radius: 16px;
+            overflow: hidden;
+            cursor: pointer;
+            background: #f0f2f5;
+        }
+
+            .gallery-item img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s;
+            }
+
+            .gallery-item:hover img {
+                transform: scale(1.05);
+            }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-delete {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 32px;
+            height: 32px;
+            background: #ef4444;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+            z-index: 10;
+        }
+
+        .gallery-item:hover .gallery-delete {
+            opacity: 1;
+        }
+
+        /* Admin Panel */
+        .admin-panel {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 20px;
+            background: #FFFFFF;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            z-index: 1000;
+            width: 320px;
+        }
+
+            .admin-panel.active {
+                display: block;
+            }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .admin-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: #1A1A1A;
+        }
+
+        .admin-close {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .upload-zone {
+            border: 3px dashed #cbd5e1;
+            border-radius: 16px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .upload-zone:hover, .upload-zone.dragover {
+                border-color: #1E3A8A;
+                background: #f0f4ff;
+            }
+
+            .upload-zone i {
+                font-size: 40px;
+                color: #94a3b8;
+                margin-bottom: 12px;
+            }
+
+        .upload-text {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .upload-hint {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+
+        .btn-clear {
+            width: 100%;
+            margin-top: 16px;
+            padding: 12px;
+            background: #ef4444;
+            color: #FFFFFF;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .btn-clear:hover {
+                background: #dc2626;
+            }
+
+        .admin-note {
+            font-size: 11px;
+            color: #94a3b8;
+            text-align: center;
+            margin-top: 12px;
+        }
+
+        /* Secret Button - Góc trái dưới */
+        .secret-zone {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            z-index: 999;
+        }
+
+        .secret-btn {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .secret-zone:hover .secret-btn {
+            opacity: 0.4;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .secret-btn:hover {
+            opacity: 1 !important;
+            transform: scale(1.1);
+        }
+
+        .secret-btn i {
+            color: #4b5563;
+            font-size: 20px;
+        }
+
+        /* Lightbox */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.95);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+
+            .lightbox.active {
+                display: flex;
+            }
+
+            .lightbox img {
+                max-width: 90%;
+                max-height: 90%;
+                object-fit: contain;
+                border-radius: 12px;
+            }
+
+        .lightbox-close {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.3);
+            border-radius: 50%;
+            color: #FFFFFF;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+
+            .lightbox-close:hover {
+                background: rgba(255,255,255,0.3);
+            }
+
+        .empty-gallery {
+            text-align: center;
+            padding: 60px;
+            color: #94a3b8;
+        }
+
+            .empty-gallery i {
+                font-size: 64px;
+                margin-bottom: 16px;
+            }
+
+        @media (max-width: 768px) {
+            .consult-section {
+                margin: 0 20px 40px;
+                padding: 30px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-section {
+                margin: 0 20px 40px;
+                padding: 30px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <base target="_blank">
+    <base target="_blank">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a class="logo" onclick="showScene('home')">
+                <img src="https://i.ibb.co/Txmjyb7r/favicon.png" alt="Logo" style="width: 40px; height: 40px; border-radius: 8px;">
+                <span style="margin-left: 10px;">Máy Tính Tam Kỳ</span>
+            </a>
+            <ul class="nav-links">
+                <li><a onclick="showScene('home')" id="nav-home" class="active">Trang chủ</a></li>
+                <li><a onclick="showScene('about')" id="nav-about">Giới thiệu</a></li>
+                <li><a onclick="showScene('contact')" id="nav-contact">Liên hệ</a></li>
+                <li><a onclick="scrollToSection('gaming')">Gaming Gear</a></li>
+                <li><a onclick="scrollToSection('components')">Linh kiện</a></li>
+                <li><a onclick="scrollToSection('laptops')">Laptop</a></li>
+                <li><a onclick="scrollToSection('printers')">Máy in</a></li>
+                <li><a onclick="scrollToSection('webcams')">Webcam</a></li>
+            </ul>
+            <button class="nav-btn" onclick="showScene('contact')">
+                Hotline<br>
+                0914 372 327
+            </button>
+        </div>
+    </nav>
+
+    <!-- HOME SCENE -->
+    <div id="scene-home" class="scene active">
+        <!-- Hero Section -->
+        <section class="hero-home">
+            <div class="hero-home-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Máy Tính Tam Kỳ</h1>
+                    <p class="hero-subtitle">Chuyên cung cấp máy tính, laptop, linh kiện chính hãng và dịch vụ sửa chữa uy tín hàng đầu tại Tam Kỳ, Quảng Nam</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="showScene('contact')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                            Liên hệ ngay
+                        </button>
+                        <button class="btn-secondary" onclick="showScene('about')">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                            </svg>
+                            Giới thiệu
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gaming Gear Section -->
+        <section class="gaming-section" id="gaming">
+            <div class="section-header">
+                <h2 class="section-title">Gaming Gear</h2>
+                <a class="view-all">Xem tất cả →</a>
+            </div>
+            <div class="gaming-grid">
+                <div class="gaming-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-25%</span>
+                    </div>
+                    <img src="https://img.pikbest.com/backgrounds/20241129/computer-gaming-mouse-transparent-background_11145602.jpg!sw800" alt="Chuột Gaming">
+                    <div class="gaming-card-content">
+                        <h3 class="gaming-card-title">Chuột Gaming</h3>
+                        <p class="gaming-card-desc">Logitech, Razer, SteelSeries - Độ nhạy cao, RGB đẹp mắt</p>
+                        <div class="gaming-card-price">490.000đ <span class="old">650.000đ</span></div>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-19%</span>
+                    </div>
+                    <img src="https://png.pngtree.com/png-vector/20250517/ourmid/pngtree-illuminated-white-compact-mechanical-keyboard-with-rainbow-rgb-backlighting-for-gaming-png-image_16311227.png     " alt="Bàn phím cơ">
+                    <div class="gaming-card-content">
+                        <h3 class="gaming-card-title">Bàn phím cơ</h3>
+                        <p class="gaming-card-desc">Switch Cherry, Gateron - Tactile và Linear đầy đủ</p>
+                        <div class="gaming-card-price">1.290.000đ <span class="old">1.590.000đ</span></div>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-22%</span>
+                    </div>
+                    <img src="https://static.vecteezy.com/system/resources/previews/054/606/511/non_2x/gaming-chair-isolated-on-transparent-background-free-png.png     " alt="Ghế gaming">
+                    <div class="gaming-card-content">
+                        <h3 class="gaming-card-title">Ghế Gaming</h3>
+                        <p class="gaming-card-desc">Ergonomic, đệm cao su non, tựa lưng adjustable</p>
+                        <div class="gaming-card-price">2.490.000đ <span class="old">3.200.000đ</span></div>
+                    </div>
+                </div>
+                <div class="gaming-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-11%</span>
+                    </div>
+                    <img src="https://png.pngtree.com/png-vector/20231018/ourmid/pngtree-curve-screen-gaming-monitor-device-png-image_10206079.png     " alt="Màn hình gaming">
+                    <div class="gaming-card-content">
+                        <h3 class="gaming-card-title">Màn hình Gaming</h3>
+                        <p class="gaming-card-desc">144Hz, 240Hz, 4K - IPS, VA, OLED đủ loại</p>
+                        <div class="gaming-card-price">3.990.000đ <span class="old">4.500.000đ</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Components Section -->
+        <section class="components-section" id="components">
+            <div class="section-header">
+                <h2 class="section-title" style="color: #FFFFFF;">CPU – RAM – SSD</h2>
+                <a class="view-all" style="color: #FFFFFF;">Xem tất cả →</a>
+            </div>
+            <div class="components-grid">
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-15%</span>
+                    </div>
+                    <img src="https://bizweb.dktcdn.net/100/410/941/products/i5-12600kf-995d2025-faa2-4567-9dbd-3eb96f480dcb.jpg?v=1720869641130     " alt="CPU Intel">
+                    <div class="component-info">
+                        <h3 class="component-title">CPU Intel Core i5-12400F</h3>
+                        <p class="component-specs">6 nhân 12 luồng, 4.4GHz Turbo, DDR4/DDR5</p>
+                        <div class="component-price">3.290.000đ <span class="old">3.890.000đ</span></div>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-12%</span>
+                    </div>
+                    <img src="https://hanoicomputercdn.com/media/product/56282_cpu_amd_ryzen_5_5600x.jpg     " alt="CPU AMD">
+                    <div class="component-info">
+                        <h3 class="component-title">CPU AMD Ryzen 5 5600X</h3>
+                        <p class="component-specs">6 nhân 12 luồng, 4.6GHz Boost, AM4</p>
+                        <div class="component-price">3.590.000đ <span class="old">4.090.000đ</span></div>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-20%</span>
+                    </div>
+                    <img src="https://media.rs-online.com/Y2662109-01.jpg     " alt="RAM DDR4">
+                    <div class="component-info">
+                        <h3 class="component-title">RAM Corsair 16GB DDR4</h3>
+                        <p class="component-specs">2x8GB, Bus 3200MHz, RGB heatsink</p>
+                        <div class="component-price">890.000đ <span class="old">1.120.000đ</span></div>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-18%</span>
+                    </div>
+                    <img src="https://nguyencongpc.vn/media/lib/10-08-2022/ramkingstonfurybeastrgb32gb1.jpeg     " alt="RAM DDR5">
+                    <div class="component-info">
+                        <h3 class="component-title">RAM Kingston 32GB DDR5</h3>
+                        <p class="component-specs">2x16GB, Bus 5600MHz, Fury Beast</p>
+                        <div class="component-price">2.190.000đ <span class="old">2.690.000đ</span></div>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-10%</span>
+                    </div>
+                    <img src="https://tuanphong.vn/pictures/full/2021/01/1611137200-948-o-cung-ssd-500gb-samsung-870-evo-mz-77e500bw-6.jpg     " alt="SSD SATA">
+                    <div class="component-info">
+                        <h3 class="component-title">SSD Samsung 870 EVO 500GB</h3>
+                        <p class="component-specs">2.5" SATA III, 560MB/s read, bền bỉ</p>
+                        <div class="component-price">890.000đ <span class="old">990.000đ</span></div>
+                    </div>
+                </div>
+                <div class="component-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-25%</span>
+                    </div>
+                    <img src="https://nguyencongpc.vn/media/product/17066-samsung-980-pro-1tb-2.JPG     " alt="SSD NVMe">
+                    <div class="component-info">
+                        <h3 class="component-title">SSD NVMe Samsung 980 1TB</h3>
+                        <p class="component-specs">PCIe 3.0, 3500MB/s read, heatsink</p>
+                        <div class="component-price">1.490.000đ <span class="old">1.990.000đ</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Laptop Section -->
+        <section class="laptop-section" id="laptops">
+            <div class="section-header">
+                <h2 class="section-title">Laptop Chính Hãng</h2>
+                <a class="view-all" style="color: #FFFFFF;">Xem tất cả →</a>
+            </div>
+            <div class="laptop-grid">
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-12%</span>
+                    </div>
+                    <img src="https://bizweb.dktcdn.net/thumb/grande/100/512/769/products/asus-rog-strix-g15-3-7b0021cd-b6ad-4303-84f2-7a76a524d973.webp?v=1721449212623     " alt="Asus Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">ASUS</div>
+                        <h3 class="laptop-name">ROG Strix G15</h3>
+                        <div class="laptop-price">24.990.000đ <span class="old">28.500.000đ</span> <span>RTX 3060, Ryzen 7</span></div>
+                    </div>
+                </div>
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-15%</span>
+                    </div>
+                    <img src="https://laptop88.vn/media/product/5144_msi_gf63_thin_9sc_1030vn_2.jpg     " alt="MSI Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">MSI</div>
+                        <h3 class="laptop-name">GF63 Thin</h3>
+                        <div class="laptop-price">18.490.000đ <span class="old">21.800.000đ</span> <span>GTX 1650, i5-11400H</span></div>
+                    </div>
+                </div>
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-8%</span>
+                    </div>
+                    <img src="https://cdnv2.tgdd.vn/mwg-static/tgdd/Products/Images/44/330075/dell-inspiron-15-3520-i5-n3520-i5u085w11slu-1-638627942653445825-750x500.jpg     " alt="Dell Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">DELL</div>
+                        <h3 class="laptop-name">Inspiron 15 3520</h3>
+                        <div class="laptop-price">12.490.000đ <span class="old">13.600.000đ</span> <span>i5-1235U, 8GB RAM</span></div>
+                    </div>
+                </div>
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-20%</span>
+                    </div>
+                    <img src="https://songphuong.vn/Content/uploads/2024/01/Laptop-Acer-Aspire-3-N23H4-2.jpg     " alt="Acer Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">ACER</div>
+                        <h3 class="laptop-name">Aspire 3</h3>
+                        <div class="laptop-price">9.990.000đ <span class="old">12.500.000đ</span> <span>Ryzen 5, 8GB RAM</span></div>
+                    </div>
+                </div>
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-10%</span>
+                    </div>
+                    <img src="https://zshop.vn/images/companies/1/san_pham/Lenovo/gen%203%202022/ThinkPad%20E14%20Gen%204%20(5)1.jpg?1659499760671     " alt="Lenovo Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">LENOVO</div>
+                        <h3 class="laptop-name">ThinkPad E14</h3>
+                        <div class="laptop-price">15.990.000đ <span class="old">17.800.000đ</span> <span>i5-1235U, 16GB RAM</span></div>
+                    </div>
+                </div>
+                <div class="laptop-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-14%</span>
+                    </div>
+                    <img src="https://cdn.hoanghamobile.vn/Uploads/2023/10/31/7c0w2pa-2.png     " alt="HP Laptop">
+                    <div class="laptop-info">
+                        <div class="laptop-brand">HP</div>
+                        <h3 class="laptop-name">Pavilion 14-dv</h3>
+                        <div class="laptop-price">15.990.000đ <span class="old">18.600.000đ</span> <span>i7-1255U, 16GB RAM</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Printer Section -->
+        <section class="printer-section" id="printers">
+            <div class="section-header">
+                <h2 class="section-title">Máy In - Máy Scan - Máy Fax</h2>
+                <a class="view-all" style="color: #FFFFFF;">Xem tất cả →</a>
+            </div>
+            <div class="printer-grid">
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-18%</span>
+                    </div>
+                    <img src="https://crdms.images.consumerreports.org/f_auto,w_600/prod/products/cr/models/399360-black-and-white-laser-printers-hp-laserjet-pro-m404n-10009002.png" alt="Máy in laser">
+                    <div class="printer-info">
+                        <div class="printer-type">Laser Trắng Đen</div>
+                        <h3 class="printer-name">HP LaserJet Pro M404n</h3>
+                        <p class="printer-features">In 2 mặt tự động, 38 trang/phút, WiFi, USB 2.0</p>
+                        <div class="printer-price">3.490.000đ <span class="old">4.290.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-22%</span>
+                    </div>
+                    <img src="https://s7d1.scene7.com/is/image/canon/3102C019_color-imageclass-mf641cw_4?fmt=webp-alpha     " alt="Máy in laser màu">
+                    <div class="printer-info">
+                        <div class="printer-type">Laser Màu</div>
+                        <h3 class="printer-name">Canon Color imageCLASS MF641Cw</h3>
+                        <p class="printer-features">In/Scan/Copy, 18 trang/phút, WiFi, LCD 5-inch</p>
+                        <div class="printer-price">6.990.000đ <span class="old">8.990.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-15%</span>
+                    </div>
+                    <img src="https://bizweb.dktcdn.net/thumb/1024x1024/100/410/941/products/l3110-1.jpg?v=1616377268950     " alt="Máy in phun">
+                    <div class="printer-info">
+                        <div class="printer-type">Phun Mực Đa Năng</div>
+                        <h3 class="printer-name">Epson L3210 (L3110)</h3>
+                        <p class="printer-features">In/Scan/Copy, hệ thống mực ngoài tiết kiệm, WiFi</p>
+                        <div class="printer-price">3.290.000đ <span class="old">3.890.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-20%</span>
+                    </div>
+                    <img src="https://vn.canon/media/image/2021/01/12/73e2dacfc2d54759ba40bc60fba6fbce_CISS_CM_AS_FR_op-362x320.png     " alt="Máy in ảnh">
+                    <div class="printer-info">
+                        <div class="printer-type">In Ảnh Chuyên Nghiệp</div>
+                        <h3 class="printer-name">Canon PIXMA G670</h3>
+                        <p class="printer-features">6 màu độc lập, in ảnh 10x15cm, WiFi, khay giấy 100 tờ</p>
+                        <div class="printer-price">5.490.000đ <span class="old">6.890.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-12%</span>
+                    </div>
+                    <img src="https://nhatkhanhtech.com/wp-content/uploads/2024/11/May-in-kim-Epson-LQ310_208582.png     " alt="Máy in kim">
+                    <div class="printer-info">
+                        <div class="printer-type">In Kim (Hóa Đơn)</div>
+                        <h3 class="printer-name">Epson LQ-310</h3>
+                        <p class="printer-features">In liên tục 3 liên, 347 ký tự/giây, USB + Parallel</p>
+                        <div class="printer-price">4.190.000đ <span class="old">4.790.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-16%</span>
+                    </div>
+                    <img src="https://i8.amplience.net/i/epsonemear/04_fy21_sidm_left_en?$product-xlarge$&fmt=auto&img404=missing_product&v=1" alt="Máy in kim Epson">
+                    <div class="printer-info">
+                        <div class="printer-type">In Kim Công Nghiệp</div>
+                        <h3 class="printer-name">Epson LQ-690</h3>
+                        <p class="printer-features">In 5 liên, 529 ký tự/giây, bền bỉ 400 triệu dòng</p>
+                        <div class="printer-price">7.990.000đ <span class="old">9.590.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-30%</span>
+                    </div>
+                    <img src="https://mayposbanhang.vn/wp-content/uploads/2024/06/may-in-ma-vach-xprinter-xp-420b-500x300.jpg     " alt="Máy in nhiệt">
+                    <div class="printer-info">
+                        <div class="printer-type">In Nhiệt (Tem Nhãn)</div>
+                        <h3 class="printer-name">Xprinter XP-420B</h3>
+                        <p class="printer-features">In tem vận chuyển, mã vạch, 127mm/s, USB</p>
+                        <div class="printer-price">1.290.000đ <span class="old">1.850.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-10%</span>
+                    </div>
+                    <img src="https://mediaserver.goepson.com/ImConvServlet/imconv/1c00ed930565cdc2dbcefddf22e699078f7ac0dc/1200Wx1200H?use=banner&hybrisId=B2C&assetDescr=Copy%20of%20FY18_THI_Left_Paper_EBCK     " alt="Máy in hóa đơn">
+                    <div class="printer-info">
+                        <div class="printer-type">In Hóa Đơn Nhiệt</div>
+                        <h3 class="printer-name">Epson TM-T82III</h3>
+                        <p class="printer-features">In bill K58/K80, 250mm/s, USB + Ethernet, cắt giấy tự động</p>
+                        <div class="printer-price">3.590.000đ <span class="old">4.000.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-25%</span>
+                    </div>
+                    <img src="https://www.tnc.com.vn/uploads/product/gallery/Lide-300-1.png     " alt="Máy scan">
+                    <div class="printer-info">
+                        <div class="printer-type">Scan Tài Liệu</div>
+                        <h3 class="printer-name">Canon CanoScan LiDE 300</h3>
+                        <p class="printer-features">Scan phẳng A4, 2400x2400 dpi, USB 2.0, nhỏ gọn</p>
+                        <div class="printer-price">1.490.000đ <span class="old">1.990.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-18%</span>
+                    </div>
+                    <img src="https://www.ccn.com.vn/images/products/2021414177371.jpg     " alt="Máy scan ADF">
+                    <div class="printer-info">
+                        <div class="printer-type">Scan ADF Nhanh</div>
+                        <h3 class="printer-name">Fujitsu ScanSnap iX1400</h3>
+                        <p class="printer-features">Scan 2 mặt 40 trang/phút, ADF 50 tờ, USB 3.2</p>
+                        <div class="printer-price">8.990.000đ <span class="old">10.990.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-15%</span>
+                    </div>
+                    <img src="https://www.brother.com.vn/-/media/ap2/products/faxmachine/fax-2840/fax-machine-fax-2840-l.webp?rev=d1d70615152e49f1bc580c2281b786ba     " alt="Máy fax">
+                    <div class="printer-info">
+                        <div class="printer-type">Fax Laser</div>
+                        <h3 class="printer-name">Brother FAX-2840</h3>
+                        <p class="printer-features">Fax/Copy/Phone, 33.6kbps, bộ nhớ 400 trang, tay nghe</p>
+                        <div class="printer-price">4.790.000đ <span class="old">5.650.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-20%</span>
+                    </div>
+                    <img src="https://bizweb.dktcdn.net/100/521/696/products/2021-4-19-637544247657181951-brother-mfc-t920dw-den-2.jpg?v=1749697474963     " alt="Máy fax phun">
+                    <div class="printer-info">
+                        <div class="printer-type">Fax Đa Năng</div>
+                        <h3 class="printer-name">Brother MFC-T920DW</h3>
+                        <p class="printer-features">Print/Scan/Copy/Fax, WiFi, ADF 20 tờ, mực ngoài tiết kiệm</p>
+                        <div class="printer-price">6.290.000đ <span class="old">7.900.000đ</span></div>
+                    </div>
+                </div>
+                <div class="printer-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-28%</span>
+                    </div>
+                    <img src="https://www.meme3d.com/wp-content/uploads/2022/12/ender-3-v2.webp     " alt="Máy in 3D">
+                    <div class="printer-info">
+                        <div class="printer-type">In 3D FDM</div>
+                        <h3 class="printer-name">Creality Ender-3 V2</h3>
+                        <p class="printer-features">Kích thước in 220x220x250mm, màn hình màu, silent board</p>
+                        <div class="printer-price">4.990.000đ <span class="old">6.950.000đ</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Webcam Section -->
+        <section class="webcam-section" id="webcams">
+            <div class="section-header">
+                <h2 class="section-title">Webcam Chất Lượng Cao</h2>
+                <a class="view-all" style="color: #FFFFFF;">Xem tất cả →</a>
+            </div>
+            <div class="webcam-grid">
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-15%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770433521_3574.png     " alt="Insta360 Link 2">
+                    <div class="webcam-name">Insta360 Link 2 (4K)</div>
+                    <div class="webcam-price">4.990.000đ <span class="old">5.900.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-22%</span>
+                    </div>
+                    <img src="https://resource.logitech.com/content/dam/logitech/en/products/webcams/mx-brio-705/gallery/mx-brio-705-for-business-1.png     " alt="Logitech MX Brio">
+                    <div class="webcam-name">Logitech MX Brio (4K)</div>
+                    <div class="webcam-price">3.490.000đ <span class="old">4.500.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-25%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770205288_5057.png     " alt="Opal Tadpole">
+                    <div class="webcam-name">Opal Tadpole</div>
+                    <div class="webcam-price">2.990.000đ <span class="old">4.000.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-30%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770204854_6499.png     " alt="Logitech Brio">
+                    <div class="webcam-name">Logitech Brio 4K Ultra HD</div>
+                    <div class="webcam-price">2.490.000đ <span class="old">3.600.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-18%</span>
+                    </div>
+                    <img src="https://static0.xdaimages.com/wordpress/wp-content/uploads/2023/02/razer-kiyo-pro-ultra.png     " alt="Razer Kiyo Pro">
+                    <div class="webcam-name">Razer Kiyo Pro</div>
+                    <div class="webcam-price">2.190.000đ <span class="old">2.690.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-35%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770430836_8316.png     " alt="Anker PowerConf">
+                    <div class="webcam-name">Anker PowerConf C200 (2K)</div>
+                    <div class="webcam-price">1.290.000đ <span class="old">2.000.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-20%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770213811_9906.png     " alt="Logitech C922">
+                    <div class="webcam-name">Logitech C922 Pro Stream</div>
+                    <div class="webcam-price">1.490.000đ <span class="old">1.890.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-12%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770205056_4525.png     " alt="Jabra PanaCast">
+                    <div class="webcam-name">Jabra PanaCast 20 (4K)</div>
+                    <div class="webcam-price">3.990.000đ <span class="old">4.550.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-10%</span>
+                    </div>
+                    <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770431963_5698.png     " alt="Poly Studio">
+                    <div class="webcam-name">Poly Studio P15</div>
+                    <div class="webcam-price">4.490.000đ <span class="old">5.000.000đ</span></div>
+                </div>
+                <div class="webcam-card">
+                    <div class="badge-sale">
+                        <img src="https://i.ibb.co/zHZzMnyF/Sale.png " alt="Sale">
+                        <span class="badge-sale-text">-40%</span>
+                    </div>
+                    <img src="https://resource.logitech.com/c_fill,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/products/logitech/webcams/c270-hd-webcam/gallery/c270-hd-webcam-1-0224.png" alt="Logitech C270">
+                    <div class="webcam-name">Logitech C270 HD (720p)</div>
+                    <div class="webcam-price">490.000đ <span class="old">820.000đ</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Tư Vấn Miễn Phí -->
+        <section class="consult-section" id="consult">
+            <div class="consult-container">
+                <h2 class="consult-title">Đăng Ký Tư Vấn Miễn Phí</h2>
+                <form class="consult-form" id="consultForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên *</label>
+                            <input type="text" name="name" class="form-input" placeholder="Họ/tên" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại *</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="0123456789" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Địa chỉ</label>
+                            <input type="text" name="address" class="form-input" placeholder="Phường/Xã, Tam Kỳ">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Loại máy tính</label>
+                            <select name="product" class="form-select">
+                                <option value="">-- Chọn loại máy tính --</option>
+                                <option value="Laptop văn phòng">Laptop văn phòng</option>
+                                <option value="Laptop gaming">Laptop gaming</option>
+                                <option value="PC văn phòng">PC văn phòng</option>
+                                <option value="PC gaming">PC gaming</option>
+                                <option value="Linh kiện - CPU">Linh kiện - CPU</option>
+                                <option value="Linh kiện - RAM">Linh kiện - RAM</option>
+                                <option value="Linh kiện - SSD/HDD">Linh kiện - SSD/HDD</option>
+                                <option value="Linh kiện - VGA">Linh kiện - VGA</option>
+                                <option value="Màn hình máy tính">Màn hình máy tính</option>
+                                <option value="Gaming Gear">Gaming Gear</option>
+                                <option value="Máy in - Máy scan">Máy in - Máy scan</option>
+                                <option value="Webcam - Thiết bị khác">Webcam - Thiết bị khác</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Ghi chú thêm</label>
+                            <textarea name="message" class="form-textarea" placeholder="Mô tả nhu cầu của bạn..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span class="spinner" id="spinner"></span>
+                        <span id="btnText">Gửi yêu cầu tư vấn</span>
+                    </button>
+                    <div class="success-message" id="successMsg">
+                        ✓ Gửi thành công! Chúng tôi sẽ liên hệ bạn trong 15 phút.
+                    </div>
+                    <div class="error-message" id="errorMsg">
+                        ✗ Có lỗi xảy ra. Vui lòng gọi 0914.372.327!
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Installment Banner -->
+        <section class="installment-banner">
+            <div class="installment-content">
+                <h2 class="installment-title">Trả góp 0% lãi suất</h2>
+                <p class="installment-desc">Mua sắm dễ dàng với chương trình trả góp qua thẻ tín dụng. Không cần thế chấp, thủ tục đơn giản, duyệt nhanh trong 5 phút.</p>
+                <button class="btn-primary" style="background: #FFFFFF; color: #667eea;" onclick="showScene('contact')">Tìm hiểu ngay</button>
+            </div>
+            <img src="https://d2wuvg8krwnvon.cloudfront.net/media/user_space/fc30548bac7c/ai_custom_img/custom_1770433341_6197.png     " alt="Trả góp 0%" class="installment-image">
+        </section>
+
+        <!-- Services Section -->
+        <section class="section" id="services">
+            <div class="section-header">
+                <h2 class="section-title">Dịch Vụ Bảo Hành & Sửa Chữa</h2>
+                <a class="view-all">Xem tất cả →</a>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <img src="https://mediadirhub.com/vibe/technician-handing-warranty-document-to-customer-in-service-center.png     " alt="Bảo hành chính hãng">
+                    <div class="service-info">
+                        <h3 class="service-title">Bảo hành chính hãng</h3>
+                        <p class="service-desc">Tất cả sản phẩm đều được bảo hành chính hãng từ 12-36 tháng. Hỗ trợ đổi mới trong 7 ngày nếu lỗi kỹ thuật.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://mediadirhub.com/vibe/technician-replacing-laptop-screen-with-precision-tools.png     " alt="Sửa chữa laptop">
+                    <div class="service-info">
+                        <h3 class="service-title">Sửa chữa laptop</h3>
+                        <p class="service-desc">Thay màn hình, bàn phím, pin, sửa mainboard, vệ sinh tản nhiệt. Linh kiện chính hãng, bảo hành 6 tháng.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://mediadirhub.com/vibe/technician-cleaning-dust-from-desktop-pc-internals-with-compressed-air.png     " alt="Sửa máy tính bàn">
+                    <div class="service-info">
+                        <h3 class="service-title">Sửa máy tính bàn</h3>
+                        <p class="service-desc">Nâng cấp cấu hình, thay linh kiện, sửa chữa phần cứng. Tư vấn build PC theo nhu cầu và ngân sách.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <img src="https://mediadirhub.com/vibe/laptop-screen-showing-windows-11-desktop-with-office-and-photoshop-icons.png     " alt="Cài đặt phần mềm">
+                    <div class="service-info">
+                        <h3 class="service-title">Cài đặt phần mềm</h3>
+                        <p class="service-desc">Cài Windows, Office, phần mềm đồ họa, diệt virus. Backup dữ liệu, phục hồi file đã xóa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2 class="cta-title">Rất nhiều thiết bị mà bạn muốn mua!</h2>
+            <p class="cta-text">Hãy liên hệ với chúng tôi để được nhận thêm thiết bị.</p>
+            <div class="cta-buttons">
+                <button class="btn-white" onclick="showScene('contact')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Liên hệ ngay
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ABOUT SCENE -->
+    <div id="scene-about" class="scene">
+        <!-- Hero Section -->
+        <section class="hero-about">
+            <div class="hero-about-content">
+                <h1 class="hero-about-title">Giới thiệu</h1>
+                <p class="hero-about-subtitle">Máy Tính Tam Kỳ là địa chỉ uy tín tại Quảng Nam chuyên cung cấp máy tính, laptop, linh kiện và gaming PC chất lượng cao, giá cả hợp lý, phục vụ học sinh, sinh viên và dân văn phòng.</p>
+            </div>
+        </section>
+        <!-- Form Tư Vấn Miễn Phí -->
+        <section class="consult-section" id="consult">
+            <div class="consult-container">
+                <h2 class="consult-title">Đăng Ký Tư Vấn Miễn Phí</h2>
+                <form class="consult-form" id="consultForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên *</label>
+                            <input type="text" name="name" class="form-input" placeholder="Họ/tên" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại *</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="0123456789" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Địa chỉ</label>
+                            <input type="text" name="address" class="form-input" placeholder="Phường/Xã, Tam Kỳ">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Loại máy tính</label>
+                            <select name="product" class="form-select">
+                                <option value="">-- Chọn loại máy tính --</option>
+                                <option value="Laptop văn phòng">Laptop văn phòng</option>
+                                <option value="Laptop gaming">Laptop gaming</option>
+                                <option value="PC văn phòng">PC văn phòng</option>
+                                <option value="PC gaming">PC gaming</option>
+                                <option value="Linh kiện - CPU">Linh kiện - CPU</option>
+                                <option value="Linh kiện - RAM">Linh kiện - RAM</option>
+                                <option value="Linh kiện - SSD/HDD">Linh kiện - SSD/HDD</option>
+                                <option value="Linh kiện - VGA">Linh kiện - VGA</option>
+                                <option value="Màn hình máy tính">Màn hình máy tính</option>
+                                <option value="Gaming Gear">Gaming Gear</option>
+                                <option value="Máy in - Máy scan">Máy in - Máy scan</option>
+                                <option value="Webcam - Thiết bị khác">Webcam - Thiết bị khác</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Ghi chú thêm</label>
+                            <textarea name="message" class="form-textarea" placeholder="Mô tả nhu cầu của bạn..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span class="spinner" id="spinner"></span>
+                        <span id="btnText">Gửi yêu cầu tư vấn</span>
+                    </button>
+                    <div class="success-message" id="successMsg">
+                        ✓ Gửi thành công! Chúng tôi sẽ liên hệ bạn trong 15 phút.
+                    </div>
+                    <div class="error-message" id="errorMsg">
+                        ✗ Có lỗi xảy ra. Vui lòng gọi 0914.372.327!
+                    </div>
+                </form>
+            </div>
+        </section>
+
+
+        <!-- Founded Section -->
+        <section class="about-year">
+            <div class="year-number">2017</div>
+            <h2 class="year-title">Được thành lập</h2>
+            <p class="year-desc">Được thành lập năm 2017 tại Tam Kỳ, Máy Tính Tam Kỳ bắt đầu từ một cửa hàng nhỏ chuyên sửa chữa và bán máy tính cũ, nay đã phát triển thành thương hiệu tin cậy với hàng nghìn khách hàng hài lòng trên toàn tỉnh Quảng Nam.</p>
+        </section>
+
+        <!-- Mission Section -->
+        <section class="about-mission">
+            <h2 class="about-block-title">Nhiệm vụ</h2>
+            <p class="about-block-desc">Chúng tôi cam kết mang đến cho khách hàng những sản phẩm máy tính và linh kiện chính hãng, giá tốt nhất, cùng dịch vụ tư vấn tận tâm và hậu mãi chu đáo, giúp mọi người tiếp cận công nghệ một cách dễ dàng và bền vững.</p>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="about-vision">
+            <h2 class="about-block-title">Tầm nhìn</h2>
+            <p class="about-block-desc">Trở thành thương hiệu công nghệ hàng đầu tại khu vực miền Trung, tiên phong trong việc phổ cập công nghệ chất lượng cao đến mọi gia đình, trường học và doanh nghiệp nhỏ tại Quảng Nam và các tỉnh lân cận.</p>
+        </section>
+
+        <!-- Awards Section -->
+        <section class="awards-section">
+            <h2 class="awards-title">Thương Hiệu Uy Tín Quảng Nam 2023</h2>
+            <p class="awards-desc">Cam kết của chúng tôi đối với sự xuất sắc đã được công nhận thông qua nhiều giải thưởng và danh hiệu danh giá. Những vinh dự này phản ánh sự tận tâm của chúng tôi đối với đổi mới, chất lượng và sự hài lòng của khách hàng, củng cố vị thế của chúng tôi như một nhà lãnh đạo ngành.</p>
+            <div class="awards-grid">
+                <div class="award-card award-gold">
+                    <div class="award-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
+                        </svg>
+                    </div>
+                    <div class="award-title">Giải thưởng Đổi mới Tốt Nhất</div>
+                    <div class="award-year">2023</div>
+                </div>
+                <div class="award-card award-blue">
+                    <div class="award-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                    </div>
+                    <div class="award-title">Xuất sắc trong Dịch vụ</div>
+                    <div class="award-year">2022</div>
+                </div>
+                <div class="award-card award-purple">
+                    <div class="award-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2l2.4 7.2h7.6l-6 4.8 2.4 7.2-6-4.8-6 4.8 2.4-7.2-6-4.8h7.6z" />
+                        </svg>
+                    </div>
+                    <div class="award-title">Nhà Lãnh Đạo Ngành</div>
+                    <div class="award-year">2021</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="gallery-section" id="gallery">
+            <div class="section-header">
+                <h2 class="section-title">Hình Ảnh Thực Tế</h2>
+            </div>
+            <div id="galleryGrid" class="gallery-grid">
+                <!-- Ảnh sẽ được thêm bằng JS -->
+            </div>
+            <div id="emptyGallery" class="empty-gallery" style="display: none;">
+                <i>📷</i>
+                <p>Chưa có ảnh nào</p>
+            </div>
+        </section>
+
+        <div class="cta-section">
+            <h2 class="cta-title">Bạn muốn tìm hiểu thêm?</h2>
+            <p class="cta-text">Hãy liên hệ với chúng tôi để được tư vấn miễn phí và trải nghiệm dịch vụ tốt nhất tại Tam Kỳ.</p>
+            <div class="cta-buttons">
+                <button class="btn-white" onclick="showScene('contact')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                    Liên hệ ngay
+                </button>
+                <button class="btn-outline" onclick="showScene('home')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                    Xem sản phẩm
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT SCENE -->
+    <div id="scene-contact" class="scene">
+        <!-- Hero Section -->
+        <section class="hero-contact">
+            <div class="hero-contact-content">
+                <h1 class="hero-contact-title">Liên hệ với chúng tôi</h1>
+                <p class="hero-contact-subtitle">Liên hệ ngay với Máy Tính Tam Kỳ để được tư vấn miễn phí, hỗ trợ chọn máy phù hợp hoặc đặt lịch sửa chữa. Chúng tôi luôn sẵn sàng phục vụ bạn qua hotline, Zalo hoặc đến trực tiếp cửa hàng.</p>
+            </div>
+        </section>
+
+        <!-- Contact Content -->
+        <div class="contact-wrapper">
+            <!-- Contact Methods -->
+            <div class="contact-methods">
+                <!-- Phone -->
+                <a href="tel:0914372327" class="contact-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Gọi điện</div>
+                        <div class="contact-value">+84 0914 372 327</div>
+                    </div>
+                </a>
+
+                <!-- Zalo -->
+                <a href="https://zalo.me/0914372327     " target="_blank" class="contact-card">
+                    <div class="icon-box">
+                        <img src="https://mediadirhub.com/samples/logo-zalo-vector-16.jpg     " alt="Zalo">
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Zalo</div>
+                        <div class="contact-value">+84 0914 372 327</div>
+                    </div>
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/84914372327     " target="_blank" class="contact-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">WhatsApp</div>
+                        <div class="contact-value">+84 0914 372 327</div>
+                    </div>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:tranlam236@gmail.com" class="contact-card">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Email</div>
+                        <div class="contact-value">tranlam236@gmail.com</div>
+                    </div>
+                </a>
+
+                <!-- Address -->
+                <div class="contact-card" style="cursor: default;">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="contact-info">
+                        <div class="contact-label">Địa chỉ</div>
+                        <div class="contact-value">32 Trần Quý Cáp, Phường Tân Thạnh, Tam Kỳ, Quảng Nam, Việt Nam</div>
+                    </div>
+                </div>
+
+                <!-- Business Hours -->
+                <div class="business-hours">
+                    <div class="hours-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: #1E3A8A;">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                        Giờ làm việc
+                    </div>
+                    <div class="hours-list">
+                        <div class="hours-item">
+                            <span class="hours-day">Thứ 2 - Thứ 6</span>
+                            <span class="hours-time">08:00 - 20:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Thứ 7</span>
+                            <span class="hours-time">08:00 - 18:00</span>
+                        </div>
+                        <div class="hours-item">
+                            <span class="hours-day">Chủ nhật</span>
+                            <span class="hours-time">09:00 - 17:00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="map-section">
+                <div class="map-header">
+                    <div class="map-title">Vị trí cửa hàng</div>
+                    <div class="map-address">32 Trần Quý Cáp, Phường Tân Thạnh<br>Tam Kỳ, Quảng Nam, Việt Nam</div>
+                </div>
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.2937916648957!2d108.4680173152601!3d15.576673780033034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3169ddc1d4f7e9ed%3A0xf1728e864099c004!2sL%E1%BA%AFp%20Camera%20Qu%E1%BA%A3ng%20Nam!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Tư Vấn Miễn Phí -->
+        <section class="consult-section" id="consult">
+            <div class="consult-container">
+                <h2 class="consult-title">Đăng Ký Tư Vấn Miễn Phí</h2>
+                <form class="consult-form" id="consultForm">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label class="form-label">Họ và tên *</label>
+                            <input type="text" name="name" class="form-input" placeholder="Họ/tên" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Số điện thoại *</label>
+                            <input type="tel" name="phone" class="form-input" placeholder="0123456789" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" class="form-input" placeholder="email@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Địa chỉ</label>
+                            <input type="text" name="address" class="form-input" placeholder="Phường/Xã, Tam Kỳ">
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Loại máy tính</label>
+                            <select name="product" class="form-select">
+                                <option value="">-- Chọn loại máy tính --</option>
+                                <option value="Laptop văn phòng">Laptop văn phòng</option>
+                                <option value="Laptop gaming">Laptop gaming</option>
+                                <option value="PC văn phòng">PC văn phòng</option>
+                                <option value="PC gaming">PC gaming</option>
+                                <option value="Linh kiện - CPU">Linh kiện - CPU</option>
+                                <option value="Linh kiện - RAM">Linh kiện - RAM</option>
+                                <option value="Linh kiện - SSD/HDD">Linh kiện - SSD/HDD</option>
+                                <option value="Linh kiện - VGA">Linh kiện - VGA</option>
+                                <option value="Màn hình máy tính">Màn hình máy tính</option>
+                                <option value="Gaming Gear">Gaming Gear</option>
+                                <option value="Máy in - Máy scan">Máy in - Máy scan</option>
+                                <option value="Webcam - Thiết bị khác">Webcam - Thiết bị khác</option>
+                                <option value="Khác">Khác</option>
+                            </select>
+                        </div>
+                        <div class="form-group full">
+                            <label class="form-label">Ghi chú thêm</label>
+                            <textarea name="message" class="form-textarea" placeholder="Mô tả nhu cầu của bạn..."></textarea>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-submit">
+                        <span class="spinner" id="spinner"></span>
+                        <span id="btnText">Gửi yêu cầu tư vấn</span>
+                    </button>
+                    <div class="success-message" id="successMsg">
+                        ✓ Gửi thành công! Chúng tôi sẽ liên hệ bạn trong 15 phút.
+                    </div>
+                    <div class="error-message" id="errorMsg">
+                        ✗ Có lỗi xảy ra. Vui lòng gọi 0914.372.327!
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3 style="display: flex; align-items: center; gap: 10px;">
+                    <img src="https://i.ibb.co/Txmjyb7r/favicon.png" alt="Logo" style="width: 32px; height: 32px; border-radius: 6px;">
+                    Máy Tính Tam Kỳ
+                </h3>
+                <p>Cửa hàng máy tính uy tín hàng đầu tại Tam Kỳ, Quảng Nam. Chuyên cung cấp laptop, linh kiện, gaming gear và dịch vụ sửa chữa chuyên nghiệp.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Sản phẩm</h4>
+                <ul>
+                    <li><a onclick="scrollToSection('laptops')">Laptop</a></li>
+                    <li><a onclick="scrollToSection('components')">Linh kiện PC</a></li>
+                    <li><a onclick="scrollToSection('gaming')">Gaming Gear</a></li>
+                    <li><a onclick="scrollToSection('printers')">Máy in</a></li>
+                    <li><a onclick="scrollToSection('webcams')">Webcam</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Dịch vụ</h4>
+                <ul>
+                    <li><a>Sửa chữa laptop</a></li>
+                    <li><a>Sửa máy tính bàn</a></li>
+                    <li><a>Cài đặt phần mềm</a></li>
+                    <li><a>Bảo hành chính hãng</a></li>
+                    <li><a>Trả góp 0%</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Liên hệ</h4>
+                <ul>
+                    <li><a onclick="showScene('contact')">Địa chỉ cửa hàng</a></li>
+                    <li><a href="tel:0914372327">Hotline: 0914 372 327</a></li>
+                    <li><a href="mailto:tranlam236@gmail.com">Email: tranlam236@gmail.com</a></li>
+                    <li><a href="https://zalo.me/0914372327   " target="_blank">Zalo: 0914 372 327</a></li>
+                    <li><a>Facebook: Máy Tính Tam Kỳ (Đang Tiến Hành)</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Máy Tính Tam Kỳ. All rights reserved. | Designed with "Huynhgiaan_c00lkxidd" in Tam Ky</p>
+        </div>
+    </footer>
+
+    <!-- Admin Panel - THÊM MỚI -->
+    <div class="admin-panel" id="adminPanel">
+        <div class="admin-header">
+            <h3 class="admin-title">Quản lý Gallery</h3>
+            <button class="admin-close" onclick="toggleAdmin()">×</button>
+        </div>
+        <div class="upload-zone" onclick="document.getElementById('fileInput').click()" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)" ondragleave="dragLeaveHandler(event)">
+            <div style="font-size: 40px; margin-bottom: 12px;">☁️</div>
+            <div class="upload-text">Click hoặc kéo thả ảnh</div>
+            <div class="upload-hint">JPG, PNG, WEBP</div>
+            <input type="file" id="fileInput" accept="image/*" multiple style="display: none;" onchange="handleFiles(this.files)">
+        </div>
+        <button class="btn-clear" onclick="clearGallery()">🗑️ Xóa tất cả ảnh</button>
+        <p class="admin-note">Ảnh chỉ lưu trong trình duyệt này</p>
+    </div>
+
+    <!-- Secret Zone - Góc trái dưới - THÊM MỚI -->
+    <div class="secret-zone">
+        <button class="secret-btn" onclick="toggleAdmin()">⚙️</button>
+    </div>
+
+    <!-- Lightbox - THÊM MỚI -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImg" src="" alt="Full size">
+        <button class="lightbox-close">×</button>
+    </div>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <a href="https://zalo.me/0914372327 " target="_blank" class="floating-btn zalo-btn" data-tooltip="Chat Zalo">
+            <img src="https://i.ibb.co/YTkypfNw/Zalo.png" alt="Zalo">
+        </a>
+        <a href="https://www.messenger.com/e2ee/t/8312555842105869 " target="_blank" class="floating-btn messenger-btn" data-tooltip="Messenger">
+            <svg viewBox="0 0 24 24" fill="white" style="width: 32px; height: 32px;">
+                <path d="M12,2C6.48,2,2,6.03,2,11c0,2.64,1.34,4.99,3.44,6.55V22l4.04-2.24C10.02,19.92,10.99,20,12,20c5.52,0,10-4.03,10-9 S17.52,2,12,2z M13.07,14.35l-2.55-2.73L6.5,14.35l4.01-4.26l2.6,2.73l3.97-2.73L13.07,14.35z" />
+            </svg>
+        </a>
+        <a href="tel:0914372327" class="floating-btn phone-btn" data-tooltip="Gọi ngay">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" style="width: 28px; height: 28px;">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+        </a>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+        // Scene Management
+        function showScene(sceneName) {
+            // Hide all scenes
+            document.querySelectorAll('.scene').forEach(scene => {
+                scene.classList.remove('active');
+            });
+
+            // Show selected scene
+            document.getElementById('scene-' + sceneName).classList.add('active');
+
+            // Update navigation active state
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.classList.remove('active');
+            });
+
+            const navId = 'nav-' + sceneName;
+            const navElement = document.getElementById(navId);
+            if (navElement) {
+                navElement.classList.add('active');
+            }
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Scroll to section
+        function scrollToSection(sectionId) {
+            // If not on home page, switch to home first
+            const homeScene = document.getElementById('scene-home');
+            if (!homeScene.classList.contains('active')) {
+                showScene('home');
+                setTimeout(() => {
+                    const element = document.getElementById(sectionId);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                }, 100);
+            } else {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        }
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all cards
+        document.querySelectorAll('.gaming-card, .component-card, .laptop-card, .printer-card, .webcam-card, .service-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+        // =========================================
+        // GALLERY MANAGEMENT - THÊM MỚI
+        // =========================================
+
+        let galleryImages = JSON.parse(localStorage.getItem('pcGallery') || '[]');
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const empty = document.getElementById('emptyGallery');
+
+            if (!grid) return;
+
+            if (galleryImages.length === 0) {
+                grid.innerHTML = '';
+                if (empty) empty.style.display = 'block';
+                return;
+            }
+
+            if (empty) empty.style.display = 'none';
+            grid.innerHTML = galleryImages.map((img, index) => `
+                                <div class="gallery-item" onclick="openLightbox('${img}')">
+                                    <img src="${img}" alt="Máy tính Tam Kỳ ${index + 1}" loading="lazy">
+                                    <div class="gallery-overlay">
+                                        <span style="color: white; font-size: 24px;">🔍</span>
+                                    </div>
+
+                                </div>
+                            `).join('');
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+
+                        let w = img.width, h = img.height;
+                        if (w > 800 || h > 800) {
+                            if (w > h) { h = h * 800 / w; w = 800; }
+                            else { w = w * 800 / h; h = 800; }
+                        }
+
+                        canvas.width = w;
+                        canvas.height = h;
+                        ctx.drawImage(img, 0, 0, w, h);
+
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                        galleryImages.push(dataUrl);
+                        localStorage.setItem('pcGallery', JSON.stringify(galleryImages));
+                        renderGallery();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function dropHandler(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('dragover');
+            handleFiles(e.dataTransfer.files);
+        }
+
+        function dragOverHandler(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('dragover');
+        }
+
+        function dragLeaveHandler(e) {
+            e.currentTarget.classList.remove('dragover');
+        }
+
+
+
+        function clearGallery() {
+            if (confirm('Xóa TẤT CẢ ảnh?')) {
+                galleryImages = [];
+                localStorage.removeItem('pcGallery');
+                renderGallery();
+            }
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            if (lightbox && img) {
+                img.src = src;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            if (panel) {
+                panel.classList.toggle('active');
+            }
+        }
+
+        // =========================================
+        // FORM SUBMISSION - THÊM MỚI
+        // =========================================
+
+        const consultForm = document.getElementById('consultForm');
+        if (consultForm) {
+            consultForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+
+                const spinner = document.getElementById('spinner');
+                const btnText = document.getElementById('btnText');
+                const successMsg = document.getElementById('successMsg');
+                const errorMsg = document.getElementById('errorMsg');
+                const submitBtn = consultForm.querySelector('button[type="submit"]');
+
+                if (successMsg) successMsg.style.display = 'none';
+                if (errorMsg) errorMsg.style.display = 'none';
+
+                if (spinner) spinner.style.display = 'inline-block';
+                if (btnText) btnText.textContent = 'Đang gửi...';
+                if (submitBtn) submitBtn.disabled = true;
+
+                // URL Google Apps Script - THAY BẰNG URL CỦA BẠN
+                const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRjkJTdM49vaU9RWNVtW6_WiaZSL_I2hjYHNdjCBk5_50x1_TaJF4q8JGOtuP0NCGJ_A/exec';
+
+                try {
+                    const formData = new FormData(consultForm);
+                    const params = new URLSearchParams();
+
+                    for (let [key, value] of formData.entries()) {
+                        params.append(key, value);
+                    }
+
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: params,
+                        redirect: 'follow'
+                    });
+
+                    if (!response.ok) throw new Error('HTTP error! status: ' + response.status);
+
+                    const result = await response.json();
+
+                    if (result.status === 'success') {
+                        if (successMsg) successMsg.style.display = 'block';
+                        consultForm.reset();
+                    } else {
+                        throw new Error(result.message || 'Unknown error');
+                    }
+
+                } catch (error) {
+                    console.error('Error:', error);
+                    if (errorMsg) {
+                        errorMsg.textContent = 'Lỗi: ' + error.message + '. Vui lòng gọi 0914.372.327!';
+                        errorMsg.style.display = 'block';
+                    }
+                } finally {
+                    if (spinner) spinner.style.display = 'none';
+                    if (btnText) btnText.textContent = 'Gửi yêu cầu tư vấn';
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Phím tắt ESC để đóng lightbox
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') closeLightbox();
+        });
+
+        // Initialize gallery on load
+        document.addEventListener('DOMContentLoaded', renderGallery);
+    </script>
+</body>
+</html>

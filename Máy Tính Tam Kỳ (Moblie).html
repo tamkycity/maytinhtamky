@@ -1,0 +1,1399 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1E3A8A">
+    <title>Máy Tính Tam Kỳ - Cửa hàng máy tính uy tín</title>
+    <link rel="manifest" href="manifest.json">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
+            color: #FFFFFF;
+            line-height: 1.5;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* Mobile Navigation - Bottom Tab Bar */
+        .mobile-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            justify-content: space-around;
+            padding: 8px 0 calc(8px + env(safe-area-inset-bottom));
+            z-index: 1000;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
+        }
+
+        .nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 8px 16px;
+            color: #64748b;
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border-radius: 12px;
+        }
+
+            .nav-item.active {
+                color: #1E3A8A;
+                background: rgba(30,58,138,0.1);
+            }
+
+            .nav-item svg {
+                width: 24px;
+                height: 24px;
+            }
+
+        /* Header */
+        .mobile-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+
+        .logo-mobile {
+            font-size: 20px;
+            font-weight: 800;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+            .logo-mobile svg {
+                width: 28px;
+                height: 28px;
+            }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .header-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .header-btn:active {
+                transform: scale(0.95);
+                background: rgba(255,255,255,0.3);
+            }
+
+        /* Hero Section Mobile */
+        .hero-mobile {
+            padding: 24px 20px;
+            background: linear-gradient(180deg, rgba(30,58,138,0.3) 0%, transparent 100%);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255,215,0,0.2);
+            border: 1px solid rgba(255,215,0,0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #ffd700;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .hero-title-mobile {
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 12px;
+            background: linear-gradient(135deg, #FFFFFF 0%, #93bbfc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle-mobile {
+            font-size: 15px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 24px;
+            line-height: 1.6;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn-mobile-primary {
+            flex: 1;
+            background: #FFFFFF;
+            color: #1E3A8A;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 700;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            text-decoration: none;
+        }
+
+        .btn-mobile-secondary {
+            flex: 1;
+            background: transparent;
+            color: #FFFFFF;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            border: 2px solid rgba(255,255,255,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+
+        /* Quick Categories */
+        .quick-categories {
+            padding: 20px;
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+            .quick-categories::-webkit-scrollbar {
+                display: none;
+            }
+
+        .category-chip {
+            flex-shrink: 0;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+            .category-chip:active {
+                transform: scale(0.95);
+                background: rgba(255,255,255,0.2);
+            }
+
+            .category-chip svg {
+                width: 18px;
+                height: 18px;
+            }
+
+        /* Section Headers */
+        .section-header-mobile {
+            padding: 24px 20px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .section-title-mobile {
+            font-size: 22px;
+            font-weight: 800;
+            color: #FFFFFF;
+        }
+
+        .view-all-mobile {
+            color: #93bbfc;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Product Cards - Horizontal Scroll */
+        .products-scroll {
+            display: flex;
+            gap: 16px;
+            padding: 0 20px 24px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+        }
+
+            .products-scroll::-webkit-scrollbar {
+                display: none;
+            }
+
+        .product-card-mobile {
+            flex-shrink: 0;
+            width: 160px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.2);
+            position: relative;
+        }
+
+            .product-card-mobile:active {
+                transform: scale(0.98);
+            }
+
+        .badge-sale-mobile {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #FFFFFF;
+            padding: 4px 8px;
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 800;
+            z-index: 10;
+            box-shadow: 0 2px 8px rgba(239,68,68,0.4);
+        }
+
+        .product-image-mobile {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            background: #FFFFFF;
+        }
+
+        .product-info-mobile {
+            padding: 12px;
+        }
+
+        .product-name-mobile {
+            font-size: 13px;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.4;
+            margin-bottom: 8px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .product-price-mobile {
+            font-size: 15px;
+            font-weight: 800;
+            color: #ffd700;
+        }
+
+            .product-price-mobile .old {
+                font-size: 12px;
+                color: rgba(255,255,255,0.5);
+                text-decoration: line-through;
+                margin-left: 4px;
+            }
+
+        /* Featured Section */
+        .featured-section {
+            margin: 0 20px 24px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .featured-section::before {
+                content: '';
+                position: absolute;
+                top: -50%;
+                right: -20%;
+                width: 200px;
+                height: 200px;
+                background: rgba(255,255,255,0.1);
+                border-radius: 50%;
+            }
+
+        .featured-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .featured-desc {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .featured-btn {
+            background: #FFFFFF;
+            color: #667eea;
+            padding: 12px 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Service Cards */
+        .services-mobile {
+            padding: 0 20px 24px;
+            display: grid;
+            gap: 12px;
+        }
+
+        .service-card-mobile {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .service-icon-mobile {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2d4a9a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+            .service-icon-mobile svg {
+                width: 28px;
+                height: 28px;
+                color: #FFFFFF;
+            }
+
+        .service-content-mobile h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .service-content-mobile p {
+            font-size: 13px;
+            color: rgba(255,255,255,0.7);
+            line-height: 1.5;
+        }
+
+        /* Contact Section Mobile */
+        .contact-section-mobile {
+            padding: 24px 20px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .contact-grid-mobile {
+            display: grid;
+            gap: 12px;
+        }
+
+        .contact-card-mobile {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid rgba(255,255,255,0.2);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .contact-icon-mobile {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+            .contact-icon-mobile svg {
+                width: 24px;
+                height: 24px;
+                color: #93bbfc;
+            }
+
+        .contact-info-mobile h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .contact-info-mobile p {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+        }
+
+        .map-container-mobile {
+            margin-top: 16px;
+            border-radius: 16px;
+            overflow: hidden;
+            height: 200px;
+        }
+
+            .map-container-mobile iframe {
+                width: 100%;
+                height: 100%;
+                border: none;
+            }
+
+        /* Bottom Spacing for Nav */
+        .bottom-spacer {
+            height: 80px;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-in {
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        /* Pull to refresh indicator */
+        .pull-refresh {
+            position: fixed;
+            top: -60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #1E3A8A;
+            z-index: 99;
+            transition: top 0.3s;
+        }
+
+            .pull-refresh.visible {
+                top: 0;
+            }
+
+            .pull-refresh svg {
+                width: 24px;
+                height: 24px;
+                color: #FFFFFF;
+                animation: spin 1s linear infinite;
+            }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ============================================
+           FLOATING CONTACT BUTTONS
+           ============================================ */
+        .floating-buttons {
+            position: fixed;
+            bottom: 90px;
+            right: 16px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: flex-end;
+        }
+
+        .floating-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .floating-btn:active {
+                transform: scale(0.95);
+            }
+
+            .floating-btn img {
+                width: 55%;
+                height: 55%;
+                object-fit: contain;
+            }
+
+        .zalo-btn {
+            background: #0068FF;
+            animation: zalo-pulse 2s infinite;
+        }
+
+            .zalo-btn img {
+                width: 60%;
+                height: 60%;
+                filter: brightness(0) invert(1);
+            }
+
+        .messenger-btn {
+            background: linear-gradient(135deg, #0099FF 0%, #A033FF 50%, #FF5C87 100%);
+            animation: messenger-pulse 2s infinite;
+        }
+
+        .phone-btn {
+            background: #10B981;
+            animation: phone-pulse 2s infinite;
+        }
+
+        @keyframes zalo-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(0,104,255,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(0,104,255,0);
+            }
+        }
+
+        @keyframes messenger-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(0,153,255,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(0,153,255,0);
+            }
+        }
+
+        @keyframes phone-pulse {
+            0%,100% {
+                box-shadow: 0 0 0 0 rgba(16,185,129,0.7);
+            }
+
+            70% {
+                box-shadow: 0 0 0 12px rgba(16,185,129,0);
+            }
+        }
+    </style>
+    <base target="_blank">
+    <base target="_blank">
+</head>
+<body>
+    <!-- Pull to Refresh -->
+    <div class="pull-refresh" id="pullRefresh">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15" />
+        </svg>
+    </div>
+
+    <!-- Header -->
+    <header class="mobile-header">
+        <div class="logo-mobile">
+            <img src="https://i.ibb.co/Txmjyb7r/favicon.png" alt="Logo" style="width: 32px; height: 32px; border-radius: 8px;">
+            Máy Tính Tam Kỳ
+        </div>
+        <div class="header-actions">
+            <button class="header-btn" onclick="callStore()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+            </button>
+            <button class="header-btn" onclick="openZalo()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15h-2v-2h2v2zm0-4h-2V7h2v6z" />
+                </svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-mobile">
+        <div class="hero-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+            </svg>
+            Top Rated 2024
+        </div>
+        <h1 class="hero-title-mobile">Máy Tính<br>Tam Kỳ</h1>
+        <p class="hero-subtitle-mobile">Chuyên laptop, linh kiện chính hãng & dịch vụ sửa chữa uy tín tại Quảng Nam</p>
+        <div class="hero-cta">
+            <a href="tel:0914372327" class="btn-mobile-primary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                </svg>
+                Gọi ngay
+            </a>
+            <a href="https://zalo.me/0914372327" class="btn-mobile-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                </svg>
+                Zalo
+            </a>
+        </div>
+    </section>
+    <!-- About Section -->
+    <!-- Quick Categories -->
+    <div class="quick-categories">
+        <a href="#laptops" class="category-chip" onclick="scrollToSection('laptops-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Laptop
+        </a>
+        <a href="#components" class="category-chip" onclick="scrollToSection('components-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                <rect x="9" y="9" width="6" height="6"></rect>
+                <line x1="9" y1="1" x2="9" y2="4"></line>
+                <line x1="15" y1="1" x2="15" y2="4"></line>
+                <line x1="9" y1="20" x2="9" y2="23"></line>
+                <line x1="15" y1="20" x2="15" y2="23"></line>
+                <line x1="20" y1="9" x2="23" y2="9"></line>
+                <line x1="20" y1="14" x2="23" y2="14"></line>
+                <line x1="1" y1="9" x2="4" y2="9"></line>
+                <line x1="1" y1="14" x2="4" y2="14"></line>
+            </svg>
+            Linh kiện
+        </a>
+        <a href="#gaming" class="category-chip" onclick="scrollToSection('gaming-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="6" y1="12" x2="10" y2="12"></line>
+                <line x1="8" y1="10" x2="8" y2="14"></line>
+                <line x1="15" y1="13" x2="15.01" y2="13"></line>
+                <line x1="18" y1="11" x2="18.01" y2="11"></line>
+                <rect x="2" y="6" width="20" height="12" rx="2"></rect>
+            </svg>
+            Gaming
+        </a>
+        <a href="#printers" class="category-chip" onclick="scrollToSection('printers-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 6 2 18 2 18 9"></polyline>
+                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+                <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Máy in
+        </a>
+        <a href="#webcams" class="category-chip" onclick="scrollToSection('webcams-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+                <circle cx="12" cy="13" r="4"></circle>
+            </svg>
+            Webcam
+        </a>
+    </div>
+
+    <!-- Laptops Section -->
+    <section id="laptops-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Laptop Hot</h2>
+            <a href="#" class="view-all-mobile">Xem tất cả →</a>
+        </div>
+        <div class="products-scroll">
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-12%</span>
+                <img src="https://bizweb.dktcdn.net/thumb/grande/100/512/769/products/asus-rog-strix-g15-3-7b0021cd-b6ad-4303-84f2-7a76a524d973.webp?v=1721449212623" alt="ROG Strix" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">ROG Strix G15 RTX 3060</h3>
+                    <div class="product-price-mobile">24.990.000đ <span class="old">28.5tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-15%</span>
+                <img src="https://laptop88.vn/media/product/5144_msi_gf63_thin_9sc_1030vn_2.jpg" alt="MSI GF63" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">MSI GF63 Thin i5</h3>
+                    <div class="product-price-mobile">18.490.000đ <span class="old">21.8tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-20%</span>
+                <img src="https://songphuong.vn/Content/uploads/2024/01/Laptop-Acer-Aspire-3-N23H4-2.jpg" alt="Acer Aspire" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">Acer Aspire 3 Ryzen 5</h3>
+                    <div class="product-price-mobile">9.990.000đ <span class="old">12.5tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-10%</span>
+                <img src="https://zshop.vn/images/companies/1/san_pham/Lenovo/gen%203%202022/ThinkPad%20E14%20Gen%204%20(5)1.jpg?1659499760671" alt="ThinkPad" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">ThinkPad E14 Gen 4</h3>
+                    <div class="product-price-mobile">15.990.000đ <span class="old">17.8tr</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installment Banner -->
+    <div class="featured-section">
+        <h3 class="featured-title">Trả góp 0% lãi suất</h3>
+        <p class="featured-desc">Mua sắm dễ dàng qua thẻ tín dụng. Duyệt nhanh 5 phút, không cần thế chấp.</p>
+        <button class="featured-btn" onclick="showInstallmentInfo()">
+            Tìm hiểu ngay
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Components Section -->
+    <section id="components-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Linh kiện PC</h2>
+            <a href="#" class="view-all-mobile">Xem tất cả →</a>
+        </div>
+        <div class="products-scroll">
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-15%</span>
+                <img src="https://bizweb.dktcdn.net/100/410/941/products/i5-12600kf-995d2025-faa2-4567-9dbd-3eb96f480dcb.jpg?v=1720869641130" alt="Intel i5" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">Intel Core i5-12400F</h3>
+                    <div class="product-price-mobile">3.290.000đ <span class="old">3.9tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-12%</span>
+                <img src="https://hanoicomputercdn.com/media/product/56282_cpu_amd_ryzen_5_5600x.jpg" alt="AMD Ryzen" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">AMD Ryzen 5 5600X</h3>
+                    <div class="product-price-mobile">3.590.000đ <span class="old">4.1tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-20%</span>
+                <img src="https://media.rs-online.com/Y2662109-01.jpg" alt="RAM Corsair" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">RAM Corsair 16GB RGB</h3>
+                    <div class="product-price-mobile">890.000đ <span class="old">1.1tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-25%</span>
+                <img src="https://nguyencongpc.vn/media/product/17066-samsung-980-pro-1tb-2.JPG" alt="SSD Samsung" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">SSD Samsung 980 1TB</h3>
+                    <div class="product-price-mobile">1.490.000đ <span class="old">2tr</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gaming Section -->
+    <section id="gaming-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Gaming Gear</h2>
+            <a href="#" class="view-all-mobile">Xem tất cả →</a>
+        </div>
+        <div class="products-scroll">
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-25%</span>
+                <img src="https://img.pikbest.com/backgrounds/20241129/computer-gaming-mouse-transparent-background_11145602.jpg!sw800" alt="Chuột Gaming" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">Chuột Gaming Logitech</h3>
+                    <div class="product-price-mobile">490.000đ <span class="old">650k</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-19%</span>
+                <img src="https://png.pngtree.com/png-vector/20250517/ourmid/pngtree-illuminated-white-compact-mechanical-keyboard-with-rainbow-rgb-backlighting-for-gaming-png-image_16311227.png" alt="Bàn phím cơ" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">Bàn phím cơ RGB</h3>
+                    <div class="product-price-mobile">1.290.000đ <span class="old">1.6tr</span></div>
+                </div>
+            </div>
+            <div class="product-card-mobile">
+                <span class="badge-sale-mobile">-22%</span>
+                <img src="https://static.vecteezy.com/system/resources/previews/054/606/511/non_2x/gaming-chair-isolated-on-transparent-background-free-png.png" alt="Ghế Gaming" class="product-image-mobile">
+                <div class="product-info-mobile">
+                    <h3 class="product-name-mobile">Ghế Gaming Ergonomic</h3>
+                    <div class="product-price-mobile">2.490.000đ <span class="old">3.2tr</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Dịch vụ</h2>
+        </div>
+        <div class="services-mobile">
+            <div class="service-card-mobile" onclick="showServiceDetail('repair')">
+                <div class="service-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                    </svg>
+                </div>
+                <div class="service-content-mobile">
+                    <h3>Sửa chữa Laptop</h3>
+                    <p>Thay màn hình, bàn phím, pin, sửa mainboard, vệ sinh tản nhiệt</p>
+                </div>
+            </div>
+            <div class="service-card-mobile" onclick="showServiceDetail('software')">
+                <div class="service-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                        <polyline points="14 2 14 8 20 8"></polyline>
+                        <line x1="16" y1="13" x2="8" y2="13"></line>
+                        <line x1="16" y1="17" x2="8" y2="17"></line>
+                        <polyline points="10 9 9 9 8 9"></polyline>
+                    </svg>
+                </div>
+                <div class="service-content-mobile">
+                    <h3>Cài đặt phần mềm</h3>
+                    <p>Cài Windows, Office, diệt virus, backup dữ liệu</p>
+                </div>
+            </div>
+            <div class="service-card-mobile" onclick="showServiceDetail('warranty')">
+                <div class="service-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                    </svg>
+                </div>
+                <div class="service-content-mobile">
+                    <h3>Bảo hành chính hãng</h3>
+                    <p>Bảo hành 12-36 tháng, đổi mới 7 ngày nếu lỗi</p>
+                </div>
+            </div>
+            <div class="service-card-mobile" onclick="showServiceDetail('build')">
+                <div class="service-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="4" y="4" width="16" height="16" rx="2" ry="2"></rect>
+                        <rect x="9" y="9" width="6" height="6"></rect>
+                        <line x1="9" y1="1" x2="9" y2="4"></line>
+                        <line x1="15" y1="1" x2="15" y2="4"></line>
+                        <line x1="9" y1="20" x2="9" y2="23"></line>
+                        <line x1="15" y1="20" x2="15" y2="23"></line>
+                        <line x1="20" y1="9" x2="23" y2="9"></line>
+                        <line x1="20" y1="14" x2="23" y2="14"></line>
+                        <line x1="1" y1="9" x2="4" y2="9"></line>
+                        <line x1="1" y1="14" x2="4" y2="14"></line>
+                    </svg>
+                </div>
+                <div class="service-content-mobile">
+                    <h3>Build PC theo yêu cầu</h3>
+                    <p>Tư vấn cấu hình phù hợp nhu cầu và ngân sách</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section-mobile" id="contact-section">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Liên hệ</h2>
+        </div>
+        <div class="contact-grid-mobile">
+            <a href="tel:0914372327" class="contact-card-mobile">
+                <div class="contact-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                </div>
+                <div class="contact-info-mobile">
+                    <h4>Hotline</h4>
+                    <p>0914 372 327</p>
+                </div>
+            </a>
+            <a href="https://zalo.me/0914372327" class="contact-card-mobile">
+                <div class="contact-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                </div>
+                <div class="contact-info-mobile">
+                    <h4>Zalo</h4>
+                    <p>0914 372 327</p>
+                </div>
+            </a>
+            <a href="mailto:tranlam236@gmail.com" class="contact-card-mobile">
+                <div class="contact-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                </div>
+                <div class="contact-info-mobile">
+                    <h4>Email</h4>
+                    <p>tranlam236@gmail.com</p>
+                </div>
+            </a>
+            <div class="contact-card-mobile" style="cursor: default;">
+                <div class="contact-icon-mobile">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                </div>
+                <div class="contact-info-mobile">
+                    <h4>Địa chỉ</h4>
+                    <p>32 Trần Quý Cáp, P. Tân Thạnh, Tam Kỳ</p>
+                </div>
+            </div>
+        </div>
+        <div class="map-container-mobile">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911.2937916648957!2d108.4680173152601!3d15.576673780033034!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3169ddc1d4f7e9ed%3A0xf1728e864099c004!2sL%E1%BA%AFp%20Camera%20Qu%E1%BA%A3ng%20Nam!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+        <!-- Form Tư Vấn -->
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 20px; padding: 24px; margin-top: 24px;">
+            <h3 style="font-size: 20px; font-weight: 800; text-align: center; margin-bottom: 20px; color: #FFFFFF;">Đăng ký tư vấn miễn phí</h3>
+            <form id="consultForm" style="display: flex; flex-direction: column; gap: 12px;">
+                <input type="text" name="name" placeholder="Họ và tên *" required style="padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 15px; outline: none;">
+                <input type="tel" name="phone" placeholder="Số điện thoại *" required style="padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 15px; outline: none;">
+                <input type="email" name="email" placeholder="Email" style="padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 15px; outline: none;">
+                <select name="product" style="padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 15px; outline: none; appearance: none;">
+                    <option value="" style="background: #1E3A8A; color: #FFFFFF;">-- Chọn loại máy tính --</option>
+                    <option value="Laptop văn phòng" style="background: #1E3A8A; color: #FFFFFF;">Laptop văn phòng</option>
+                    <option value="Laptop gaming" style="background: #1E3A8A; color: #FFFFFF;">Laptop gaming</option>
+                    <option value="PC văn phòng" style="background: #1E3A8A; color: #FFFFFF;">PC văn phòng</option>
+                    <option value="PC gaming" style="background: #1E3A8A; color: #FFFFFF;">PC gaming</option>
+                    <option value="Linh kiện" style="background: #1E3A8A; color: #FFFFFF;">Linh kiện (CPU/RAM/SSD/VGA)</option>
+                    <option value="Màn hình" style="background: #1E3A8A; color: #FFFFFF;">Màn hình</option>
+                    <option value="Gaming Gear" style="background: #1E3A8A; color: #FFFFFF;">Gaming Gear</option>
+                    <option value="Máy in" style="background: #1E3A8A; color: #FFFFFF;">Máy in</option>
+                    <option value="Webcam" style="background: #1E3A8A; color: #FFFFFF;">Webcam</option>
+                    <option value="Khác" style="background: #1E3A8A; color: #FFFFFF;">Cần tư vấn thêm</option>
+                </select>
+                <textarea name="message" placeholder="Ghi chú thêm..." rows="3" style="padding: 14px 16px; border-radius: 12px; border: 2px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: #FFFFFF; font-size: 15px; outline: none; resize: none;"></textarea>
+                <button type="submit" style="padding: 16px; background: #FFFFFF; color: #667eea; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; margin-top: 8px;">
+                    <span id="btnText">Gửi yêu cầu</span>
+                </button>
+                <div id="successMsg" style="display: none; background: rgba(34,197,94,0.2); border: 2px solid #22c55e; padding: 12px; border-radius: 8px; text-align: center; margin-top: 12px; font-size: 14px;">
+                    ✓ Đã gửi! Chúng tôi sẽ liên hệ bạn sớm.
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section id="about-section" style="padding: 24px 20px; background: rgba(255,255,255,0.05);">
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Giới thiệu</h2>
+        </div>
+        <div style="background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border-radius: 20px; padding: 24px; border: 1px solid rgba(255,255,255,0.2); margin-bottom: 24px;">
+            <div style="text-align: center; margin-bottom: 20px;">
+                <div style="font-size: 64px; font-weight: 300; color: #ffd700; line-height: 1;">2017</div>
+                <div style="font-size: 16px; font-weight: 700; margin-top: 8px; color: #93bbfc;">Thành lập</div>
+            </div>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.8); line-height: 1.8; text-align: center; margin-bottom: 20px;">
+                Máy Tính Tam Kỳ được thành lập năm 2017, là cửa hàng máy tính uy tín hàng đầu tại Tam Kỳ, Quảng Nam. Chuyên cung cấp laptop, linh kiện chính hãng và dịch vụ sửa chữa chuyên nghiệp.
+            </p>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px;">
+                <div style="text-align: center; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                    <div style="font-size: 24px; font-weight: 800; color: #ffd700;">7+</div>
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6);">Năm kinh nghiệm</div>
+                </div>
+                <div style="text-align: center; padding: 16px; background: rgba(255,255,255,0.1); border-radius: 12px;">
+                    <div style="font-size: 24px; font-weight: 800; color: #ffd700;">5000+</div>
+                    <div style="font-size: 12px; color: rgba(255,255,255,0.6);">Khách hàng</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gallery Section -->
+        <div class="section-header-mobile">
+            <h2 class="section-title-mobile">Hình ảnh thực tế</h2>
+        </div>
+        <div id="galleryGrid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 20px 24px;">
+            <!-- Gallery items will be added here -->
+        </div>
+        <div id="emptyGallery" style="text-align: center; padding: 40px; color: rgba(255,255,255,0.5); display: none;">
+            <div style="font-size: 48px; margin-bottom: 12px;">📷</div>
+            <p>Chưa có hình ảnh</p>
+        </div>
+    </section>
+
+    <!-- Bottom Spacer -->
+    <div class="bottom-spacer"></div>
+
+    <!-- Bottom Navigation -->
+    <nav class="mobile-nav">
+        <a href="#" class="nav-item active" onclick="scrollToTop()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            Trang chủ
+        </a>
+        <a href="#about" class="nav-item" onclick="scrollToSection('about-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            Giới thiệu
+        </a>
+        <a href="#products" class="nav-item" onclick="scrollToSection('laptops-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect>
+                <line x1="8" y1="21" x2="16" y2="21"></line>
+                <line x1="12" y1="17" x2="12" y2="21"></line>
+            </svg>
+            Sản phẩm
+        </a>
+        <a href="#contact" class="nav-item" onclick="scrollToSection('contact-section')">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+            </svg>
+            Liên hệ
+        </a>
+    </nav>
+
+    <script>
+        // Pull to refresh
+        let touchStartY = 0;
+        let touchEndY = 0;
+        const pullRefresh = document.getElementById('pullRefresh');
+
+        document.addEventListener('touchstart', e => {
+            touchStartY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchmove', e => {
+            if (window.scrollY === 0) {
+                touchEndY = e.touches[0].clientY;
+                if (touchEndY - touchStartY > 100) {
+                    pullRefresh.classList.add('visible');
+                }
+            }
+        });
+
+        document.addEventListener('touchend', () => {
+            if (pullRefresh.classList.contains('visible')) {
+                setTimeout(() => {
+                    location.reload();
+                }, 500);
+            }
+        });
+
+        // Functions
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function callStore() {
+            window.location.href = 'tel:0914372327';
+        }
+
+        function openZalo() {
+            window.location.href = 'https://zalo.me/0914372327';
+        }
+
+        function showInstallmentInfo() {
+            alert('Trả góp 0% lãi suất qua thẻ tín dụng:\n\n• Áp dụng cho đơn hàng từ 3 triệu\n• Thủ tục đơn giản, duyệt nhanh 5 phút\n• Không cần thế chấp tài sản\n• Hỗ trợ trả góp 3-12 tháng\n\nLiên hệ: 0914 372 327 để được tư vấn!');
+        }
+
+        function showServiceDetail(type) {
+            const details = {
+                repair: 'Sửa chữa Laptop:\n\n• Thay màn hình: 500k - 2tr\n• Thay bàn phím: 300k - 800k\n• Thay pin: 400k - 1.2tr\n• Vệ sinh tản nhiệt: 150k\n• Sửa mainboard: Liên hệ báo giá\n\nBảo hành 6 tháng!',
+                software: 'Cài đặt phần mềm:\n\n• Cài Windows 10/11: 150k\n• Cài Office 2019/2021: 200k\n• Cài phần mềm đồ họa: 300k\n• Diệt virus, tối ưu: 100k\n• Backup/Phục hồi dữ liệu: 200k+',
+                warranty: 'Chính sách bảo hành:\n\n• Bảo hành chính hãng 12-36 tháng\n• Đổi mới trong 7 ngày nếu lỗi\n• Hỗ trợ kỹ thuật trọn đời\n• Vệ sinh miễn phí định kỳ',
+                build: 'Build PC theo yêu cầu:\n\n• Tư vấn miễn phí\n• Lắp ráp chuyên nghiệp\n• Cài đặt phần mềm đầy đủ\n• Bảo hành từng linh kiện\n• Hỗ trợ nâng cấp sau này'
+            };
+            alert(details[type]);
+        }
+
+        // Active nav item on scroll
+        const sections = ['laptops-section', 'components-section', 'gaming-section', 'services-section', 'contact-section'];
+        const navItems = document.querySelectorAll('.nav-item');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(section => {
+                const element = document.getElementById(section);
+                if (element) {
+                    const rect = element.getBoundingClientRect();
+                    if (rect.top <= 100) {
+                        current = section;
+                    }
+                }
+            });
+
+            navItems.forEach((item, index) => {
+                item.classList.remove('active');
+                if (current && index > 0) {
+                    // Map section to nav index
+                    const sectionMap = {
+                        'laptops-section': 1,
+                        'components-section': 1,
+                        'gaming-section': 1,
+                        'services-section': 2,
+                        'contact-section': 3
+                    };
+                    if (sectionMap[current] === index) {
+                        item.classList.add('active');
+                    }
+                } else if (!current && index === 0) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Add to home screen prompt
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js').catch(() => { });
+        }
+
+        // Prevent zoom on double tap
+        let lastTouchEnd = 0;
+        document.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTouchEnd <= 300) {
+                e.preventDefault();
+            }
+            lastTouchEnd = now;
+        }, false);
+
+
+        // Gallery Management (không có nút delete)
+        let galleryImages = JSON.parse(localStorage.getItem('mobileGallery') || '[]');
+
+
+
+        // Admin Functions
+        function toggleAdmin() {
+            const panel = document.getElementById('adminPanel');
+            if (panel) {
+                panel.style.display = panel.style.display === 'none' ? 'block' : 'none';
+            }
+        }
+
+        function handleFiles(files) {
+            Array.from(files).forEach(file => {
+                if (!file.type.startsWith('image/')) return;
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        const canvas = document.createElement('canvas');
+                        const ctx = canvas.getContext('2d');
+                        let w = img.width, h = img.height;
+                        if (w > 800 || h > 800) {
+                            if (w > h) { h = h * 800 / w; w = 800; }
+                            else { w = w * 800 / h; h = 800; }
+                        }
+                        canvas.width = w;
+                        canvas.height = h;
+                        ctx.drawImage(img, 0, 0, w, h);
+                        const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
+                        galleryImages.push(dataUrl);
+                        localStorage.setItem('mobileGallery', JSON.stringify(galleryImages));
+                        renderGallery();
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function dropHandler(e) {
+            e.preventDefault();
+            handleFiles(e.dataTransfer.files);
+        }
+
+        function dragOverHandler(e) {
+            e.preventDefault();
+        }
+
+        function clearGallery() {
+            if (confirm('Xóa TẤT CẢ ảnh?')) {
+                galleryImages = [];
+                localStorage.removeItem('mobileGallery');
+                renderGallery();
+            }
+        }
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            const empty = document.getElementById('emptyGallery');
+
+            if (!grid) return;
+
+            if (galleryImages.length === 0) {
+                grid.innerHTML = '';
+                if (empty) empty.style.display = 'block';
+                return;
+            }
+
+            if (empty) empty.style.display = 'none';
+            grid.innerHTML = galleryImages.map((img, index) => `
+                            <div style="position: relative; aspect-ratio: 1; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,0.1);" onclick="openLightbox('${img}')">
+                                <img src="${img}" alt="Máy tính Tam Kỳ ${index + 1}" loading="lazy" style="width: 100%; height: 100%; object-fit: cover;">
+                                <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+                                    <span style="color: white; font-size: 24px;">🔍</span>
+                                </div>
+                            </div>
+                        `).join('');
+        }
+
+        function openLightbox(src) {
+            const lightbox = document.createElement('div');
+            lightbox.style.cssText = 'position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; display: flex; align-items: center; justify-content: center; padding: 20px;';
+            lightbox.innerHTML = `<img src="${src}" style="max-width: 100%; max-height: 100%; object-fit: contain; border-radius: 12px;" onclick="this.parentElement.remove(); document.body.style.overflow='auto';">`;
+            lightbox.onclick = () => {
+                lightbox.remove();
+                document.body.style.overflow = 'auto';
+            };
+            document.body.appendChild(lightbox);
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Form Submission
+        const consultForm = document.getElementById('consultForm');
+        if (consultForm) {
+            consultForm.addEventListener('submit', async function (e) {
+                e.preventDefault();
+                const btnText = document.getElementById('btnText');
+                const successMsg = document.getElementById('successMsg');
+                const submitBtn = consultForm.querySelector('button[type="submit"]');
+
+                if (successMsg) successMsg.style.display = 'none';
+                if (btnText) btnText.textContent = 'Đang gửi...';
+                if (submitBtn) submitBtn.disabled = true;
+
+                const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzRjkJTdM49vaU9RWNVtW6_WiaZSL_I2hjYHNdjCBk5_50x1_TaJF4q8JGOtuP0NCGJ_A/exec';
+
+                try {
+                    const formData = new FormData(consultForm);
+                    const params = new URLSearchParams();
+                    for (let [key, value] of formData.entries()) {
+                        params.append(key, value);
+                    }
+
+                    const response = await fetch(APPS_SCRIPT_URL, {
+                        method: 'POST',
+                        body: params,
+                        redirect: 'follow'
+                    });
+
+                    if (!response.ok) throw new Error('HTTP error!');
+                    const result = await response.json();
+
+                    if (result.status === 'success') {
+                        if (successMsg) successMsg.style.display = 'block';
+                        consultForm.reset();
+                    }
+                } catch (error) {
+                    alert('Lỗi: ' + error.message + '. Vui lòng gọi 0914.372.327!');
+                } finally {
+                    if (btnText) btnText.textContent = 'Gửi yêu cầu';
+                    if (submitBtn) submitBtn.disabled = false;
+                }
+            });
+        }
+
+        // Initialize gallery
+        renderGallery();
+    </script>
+
+    <!-- Admin Panel - Secret -->
+    <div style="position: fixed; bottom: 100px; left: 20px; background: #FFFFFF; padding: 20px; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); z-index: 1000; width: 280px; display: none;" id="adminPanel">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+            <h3 style="font-size: 16px; font-weight: 700; color: #1A1A1A; margin: 0;">📁 Quản lý ảnh</h3>
+            <button onclick="toggleAdmin()" style="background: none; border: none; font-size: 20px; cursor: pointer; color: #666;">×</button>
+        </div>
+        <div style="border: 3px dashed #cbd5e1; border-radius: 12px; padding: 24px; text-align: center; cursor: pointer;" onclick="document.getElementById('mobileFileInput').click()" ondrop="dropHandler(event)" ondragover="dragOverHandler(event)">
+            <div style="font-size: 32px; margin-bottom: 8px;">☁️</div>
+            <div style="font-size: 14px; color: #64748b;">Click để tải ảnh</div>
+            <input type="file" id="mobileFileInput" accept="image/*" multiple style="display: none;" onchange="handleFiles(this.files)">
+        </div>
+        <button onclick="clearGallery()" style="width: 100%; margin-top: 12px; padding: 10px; background: #ef4444; color: #FFFFFF; border: none; border-radius: 8px; font-size: 14px; font-weight: 600;">🗑️ Xóa tất cả</button>
+    </div>
+
+    <!-- Secret Button -->
+    <div style="position: fixed; bottom: 0; left: 0; width: 80px; height: 80px; z-index: 999;" onmouseover="document.getElementById('secretBtn').style.opacity='0.5'" onmouseout="document.getElementById('secretBtn').style.opacity='0'">
+        <button id="secretBtn" onclick="toggleAdmin()" style="position: fixed; bottom: 20px; left: 20px; width: 40px; height: 40px; background: rgba(255,255,255,0.9); border: none; border-radius: 50%; cursor: pointer; opacity: 0; transition: all 0.3s; font-size: 16px;">⚙️</button>
+    </div>
+
+    <!-- Floating Contact Buttons -->
+    <div class="floating-buttons">
+        <a href="https://zalo.me/0914372327" target="_blank" class="floating-btn zalo-btn">
+            <img src="https://i.ibb.co/YTkypfNw/Zalo.png" alt="Zalo">
+        </a>
+        <a href="https://www.messenger.com/e2ee/t/8312555842105869" target="_blank" class="floating-btn messenger-btn">
+            <svg viewBox="0 0 24 24" fill="white" style="width: 26px; height: 26px;">
+                <path d="M12 2C6.48 2 2 6.03 2 11c0 2.64 1.34 4.99 3.44 6.55V22l4.04-2.24C10.02 19.92 10.99 20 12 20c5.52 0 10-4.03 10-9S17.52 2 12 2z" />
+            </svg>
+        </a>
+        <a href="tel:0914372327" class="floating-btn phone-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" style="width: 22px; height: 22px;">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+            </svg>
+        </a>
+    </div>
+
+</body>
+</html>
